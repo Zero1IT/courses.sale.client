@@ -5,7 +5,7 @@ function NoMatch() {
   const location = useLocation();
 
   return (
-    <div>
+    <div className="mt-5 pt-5">
       <div>
         <h3>
           No match for <code>{location.pathname}</code>

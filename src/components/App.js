@@ -1,16 +1,15 @@
 import React from 'react';
-import HomePage from "./home_page/HomePage";
 import Wrapper from "./wrapper/Wrapper";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import NoMatch from "./error_page/NoMatch";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import AdminPage from "./admin_panel/AdminPage";
 
 function App() {
+
   return (
     <Router>
       <Switch>
-        <Route path="/admin" />
-        <Route path="/" children={<Wrapper><HomePage/></Wrapper>} exact />
-        <Route path="*" children={<NoMatch/>}/>
+        <Route path="/admin" children={<AdminPage/>} />
+        <Route path="/" children={<Wrapper/>} />
       </Switch>
     </Router>
   )

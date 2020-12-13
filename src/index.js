@@ -1,10 +1,10 @@
 import "./css/custom.css";
 import "./css/external.js";
 import "./css/icons/icofont.min.css";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../node_modules/jquery/dist/jquery.min.js"
-import "../node_modules/popper.js/dist/popper.min.js"
-import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "jquery/dist/jquery.min.js"
+import "popper.js/dist/popper.min.js"
+import "bootstrap/dist/js/bootstrap.min.js";
 
 import React from "react";
 import ReactDOM from "react-dom";
