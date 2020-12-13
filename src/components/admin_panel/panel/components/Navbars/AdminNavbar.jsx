@@ -46,9 +46,9 @@ class Header extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg p-0 navbar-light bg-light">
-        <Link className="navbar-brand m-0" to="/admin">Dashboard</Link>
-        <button className="navbar-toggler" type="button" >
+      <nav className="navbar navbar-expand-lg p-0 navbar-light bg-light nav-open">
+        <Link className="navbar-brand m-0" to="/admin">{this.props.brandText}</Link>
+        <button className="navbar-toggle collapse" type="button" onClick={this.mobileSidebarToggle}>
           <span className="sr-only">Toggle navigation</span>
           <span className="icon-bar"/>
           <span className="icon-bar"/>

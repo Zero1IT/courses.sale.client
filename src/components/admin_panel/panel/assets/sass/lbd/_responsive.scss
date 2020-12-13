@@ -305,7 +305,7 @@
         .show .dropdown-menu > li > a,
         .show .dropdown-menu > li > a:hover,
         .show .dropdown-menu > li > a:focus,
-        .navbar-nav .open .dropdown-menu > li > a:active {
+        .navbar-nav .show .dropdown-menu > li > a:active {
             color: white;
         }
 
@@ -319,7 +319,7 @@
             background: transparent;
         }
 
-        &.navbar-nav .open .dropdown-menu > li > a:active {
+        &.navbar-nav .show .dropdown-menu > li > a:active {
             opacity: 1;
         }
 

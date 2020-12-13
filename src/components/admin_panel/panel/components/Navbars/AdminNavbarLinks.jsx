@@ -24,8 +24,8 @@ class AdminNavbarLinks extends Component {
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link">
-              <i className="fa fa-dashboard" />
-              <p className="d-lg-none d-md-none">Dashboard</p>
+              <i className="fas fa-tachometer-alt"/>
+              <p className="d-lg-none">Dashboard</p>
             </a>
           </li>
           <li className="nav-item dropdown">
@@ -34,7 +34,7 @@ class AdminNavbarLinks extends Component {
                 <i className="fa fa-globe" />
                 <b className="caret" />
                 <span className="notification">5</span>
-                <p className="d-lg-none d-md-none">Notification</p>
+                <p className="d-lg-none">Notification</p>
             </a>
             <div className="dropdown-menu" aria-labelledby="notify-dropdown">
               <a className="dropdown-item">Notification 1</a>
@@ -47,7 +47,7 @@ class AdminNavbarLinks extends Component {
           <li className="nav-item">
             <a className="nav-link">
               <i className="fa fa-search" />
-              <p className="d-lg-none d-md-none">Search</p>
+              <p className="d-lg-none">Search</p>
             </a>
           </li>
         </ul>

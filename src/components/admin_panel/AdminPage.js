@@ -1,8 +1,16 @@
-import React from "react";
-import AdminComponent from "./panel/AdminComponent";
+import React, {Suspense} from "react";
 
-function AdminPage() {
-  return <AdminComponent />
-}
+import CircleLoader from "./panel/components/CircleLoader";
+import {Route, Switch} from "react-router-dom";
+
+const AdminComponent = React.lazy(() => import('./panel/AdminComponent'));
+
+const AdminPage = () => (
+  <Suspense fallback={<CircleLoader />}>
+    <Switch>
+      <Route path="/admin" component={AdminComponent} />
+    </Switch>
+  </Suspense>
+);
 
 export default AdminPage;

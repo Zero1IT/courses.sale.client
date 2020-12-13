@@ -159,13 +159,13 @@ class UserProfile extends Component {
                 socials={
                   <div>
                     <Button className="btn btn-simple">
-                      <i className="fa fa-facebook-square" />
+                      <i className="fab fa-facebook-square" />
                     </Button>
                     <Button className="btn btn-simple">
-                      <i className="fa fa-twitter" />
+                      <i className="fab fa-twitter" />
                     </Button>
                     <Button className="btn btn-simple">
-                      <i className="fa fa-google-plus-square" />
+                      <i className="fab fa-google-plus-square" />
                     </Button>
                   </div>
                 }

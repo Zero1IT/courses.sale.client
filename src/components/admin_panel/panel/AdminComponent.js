@@ -15,9 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, {Suspense} from "react";
-
-import {Route, Switch} from "react-router-dom";
+import React from "react";
 
 import "./assets/css/animate.min.css";
 import "./assets/css/light-dashboard-react.css";
@@ -25,15 +23,11 @@ import "./assets/css/demo.css";
 import "./assets/css/pe-icon-7-stroke.css";
 import "./assets/css/fonts/css/fontawesome.min.css"
 import "./assets/css/fonts/css/all.css"
-
-const AdminPageComponent = React.lazy(() => import('./layouts/Admin'));
+import Admin from "./layouts/Admin";
+import {Route} from "react-router-dom";
 
 const AdminComponent = () => (
-  <Suspense fallback={<div>Loading TO-DO</div>}>
-    <Switch>
-      <Route path="/admin" component={AdminPageComponent} />
-    </Switch>
-  </Suspense>
+  <Route path="/admin" component={Admin} />
 );
 
 export default AdminComponent;

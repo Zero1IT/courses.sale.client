@@ -7,7 +7,7 @@
   &:focus,
   &:active,
   &.active,
-  .open > &.dropdown-toggle {
+  .show > &.dropdown-toggle {
     background-color: $transparent-bg;
     color: $color;
     border-color: $color;
@@ -30,7 +30,7 @@
     &:focus,
     &:active,
     &.active,
-    .open > &.dropdown-toggle{
+    .show > &.dropdown-toggle{
         background-color: $color;
         color: $white-color;
         opacity: 1;

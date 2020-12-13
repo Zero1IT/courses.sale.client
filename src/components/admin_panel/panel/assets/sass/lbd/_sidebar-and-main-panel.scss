@@ -104,9 +104,9 @@
             }
 
             &:hover > a,
-            &.open > a,
-            &.open > a:focus,
-            &.open > a:hover{
+            &.show > a,
+            &.show > a:focus,
+            &.show > a:hover{
                 background: rgba(255,255,255,0.13);
                 opacity: 1;
             }
