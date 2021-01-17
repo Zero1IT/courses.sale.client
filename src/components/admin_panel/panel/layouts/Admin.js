@@ -116,7 +116,7 @@ class Admin extends Component {
   };
   handleFixedClick = () => {
     if (this.state.fixedClasses === "dropdown") {
-      this.setState({ fixedClasses: "dropdown show-dropdown open" });
+      this.setState({ fixedClasses: "dropdown show-dropdown show" });
     } else {
       this.setState({ fixedClasses: "dropdown" });
     }

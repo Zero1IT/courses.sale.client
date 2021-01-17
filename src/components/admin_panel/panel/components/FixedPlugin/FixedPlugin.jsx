@@ -15,7 +15,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-/*eslint-disable*/
 import React, { Component } from "react";
 import Toggle from "react-toggle";
 
@@ -182,32 +181,19 @@ class FixedPlugin extends Component {
             <li className="button-container">
               <div className="">
                 <a
-                  href="https://www.creative-tim.com/product/light-bootstrap-dashboard-react?ref=lbdr-fixed-plugin"
+                  href="https://google.com"
                   target="_blank"
-                  className="btn btn-success btn-block btn-fill"
-                >
-                  Download free!
-                </a>
-              </div>
-            </li>
-            <li className="button-container">
-              <div className="">
-                <a
-                  href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-react?ref=lbdr-fixed-plugin"
-                  target="_blank"
-                  className="btn btn-warning btn-block btn-fill"
-                >
-                  Buy Pro
+                  className="btn btn-success btn-block btn-fill">
+                  More info
                 </a>
               </div>
             </li>
             <li className="button-container">
               <a
-                href="https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/documentation/getting-started?ref=lbdr-fixed-plugin"
+                href="https://yandex.ru"
                 target="_blank"
-                className="btn btn-fill btn-info"
-              >
-                Documentation
+                className="btn btn-fill btn-info">
+                More info
               </a>
             </li>
           </ul>

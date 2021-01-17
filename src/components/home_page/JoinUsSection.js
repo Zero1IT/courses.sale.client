@@ -1,4 +1,5 @@
 import React from "react";
+import EmailField from "../root/EmailField";
 
 function JoinUsSection() {
   return (
@@ -31,16 +32,9 @@ function JoinUsSection() {
           </div>
           <h1 className="text-center text-uppercase mt-2">или</h1>
           <p className="text-center">Введи email и на почту будет выслан пароль для входа</p>
-          <div className="row no-gutters justify-content-center">
+          <div className="row no-gutters justify-content-center pb-3">
             <div className="col-md-5">
-              <div className="form-group">
-                <div className="input-group">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                  </div>
-                  <input type="text" id="mail" className="form-control" placeholder="Электронная почта"/>
-                </div>
-              </div>
+              <EmailField />
             </div>
             <div className="col-md-2">
               <button className="btn btn-success">Подтвердить</button>
