@@ -195,6 +195,16 @@
     text-transform: uppercase;
 }
 
+.fixed-plugin .dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
 .fixed-plugin .adjustments-line p{
     float: left;
     display: inline-block;
@@ -216,8 +226,6 @@
       border-radius: 10px;
       background-color: #FFF;
       border: 3px solid #FFF;
-      padding-left: 0;
-      padding-right: 0;
       opacity: 1;
       cursor: pointer;
       max-height: 86px;

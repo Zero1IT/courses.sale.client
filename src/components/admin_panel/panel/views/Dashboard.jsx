@@ -35,6 +35,7 @@ import {
 } from "../variables/Variables.jsx";
 
 function Dashboard() {
+
   const createLegend = (json) => {
     const legend = [];
     for (let i = 0; i < json["names"].length; i++) {
