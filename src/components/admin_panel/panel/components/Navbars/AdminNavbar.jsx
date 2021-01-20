@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import AdminNavbarLinks from "./AdminNavbarLinks.jsx";
-import Link from "../../../../root/Link";
+import Link from "../../../../shared/Link";
 
 class Header extends Component {
   constructor(props) {
@@ -33,9 +33,9 @@ class Header extends Component {
         <Link className="navbar-brand m-0" to="/admin">{this.props.brandText}</Link>
         <button className="navbar-toggle collapse" type="button" onClick={this.mobileSidebarToggle}>
           <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar"/>
-          <span className="icon-bar"/>
-          <span className="icon-bar"/>
+          <span className="icon-bar" />
+          <span className="icon-bar" />
+          <span className="icon-bar" />
         </button>
         <div className="navbar-collapse collapse">
           <AdminNavbarLinks />

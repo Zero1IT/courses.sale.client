@@ -23,6 +23,7 @@ import "./assets/css/demo.css";
 import "./assets/css/pe-icon-7-stroke.css";
 import "./assets/css/fonts/css/fontawesome.min.css"
 import "./assets/css/fonts/css/all.css"
+
 import Admin from "./layouts/Admin";
 import {Route} from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import EmailField from "../root/EmailField";
+import EmailField from "../shared/EmailField";
 
 function JoinUsSection() {
   return (

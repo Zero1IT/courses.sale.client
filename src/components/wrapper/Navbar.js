@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "../root/Link";
+import Link from "../shared/Link";
 
 function Navbar() {
   return (
@@ -14,13 +14,14 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <Link className="nav-link" to="/duck">Home <span className="sr-only">(current)</span></Link>
+            <Link className="nav-link" to="/">Главная<span className="sr-only">(current)</span></Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/admin">Admin</Link>
+            {/* TODO: directly link for reset SPA styles (maybe find another solutions) */}
+            <a className="nav-link" href="/admin">Администрация</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
+            <Link className="nav-link" to="/courses">Курсы</Link>
           </li>
         </ul>
       </div>

@@ -20,7 +20,7 @@ import React, {Component} from "react";
 import AdminNavbarLinks from "../Navbars/AdminNavbarLinks.jsx";
 
 import logo from "../../assets/img/reactlogo.png";
-import Link from "../../../../root/Link";
+import Link from "../../../../shared/Link";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -31,6 +31,10 @@ class Sidebar extends Component {
   }
 
   activeRoute(routeName) {
+    if (routeName === "/admin/") {
+      return this.props.location.pathname === "/admin/" || this.props.location.pathname === "/admin"
+        ? "active nav-item" : "nav-item";
+    }
     return this.props.location.pathname.indexOf(routeName) > -1 ? "active nav-item" : "nav-item";
   }
 

@@ -86,6 +86,7 @@ class Admin extends Component {
               />
             )}
             key={key}
+            {...prop.routeProps}
           />
         );
       } else {
@@ -93,14 +94,12 @@ class Admin extends Component {
       }
     });
   };
-  getBrandText = path => {
-    for (let i = 0; i < routes.length; i++) {
-      if (
-        this.props.location.pathname.indexOf(
-          routes[i].layout + routes[i].path
-        ) !== -1
-      ) {
-        return routes[i].name;
+  getBrandText = () => {
+    // reverse for not to match / (root) in start
+    const reversedRoutes = routes.reverse();
+    for (let i = 0; i < reversedRoutes.length; i++) {
+      if (this.props.location.pathname.indexOf(reversedRoutes[i].layout + reversedRoutes[i].path) !== -1) {
+        return reversedRoutes[i].name;
       }
     }
     return "Brand";
@@ -179,7 +178,7 @@ class Admin extends Component {
         <div id="main-panel" className="main-panel" ref="mainPanel">
           <AdminNavbar
             {...this.props}
-            brandText={this.getBrandText(this.props.location.pathname)}
+            brandText={this.getBrandText()}
           />
           <Switch>{this.getRoutes(routes)}</Switch>
           <Footer />

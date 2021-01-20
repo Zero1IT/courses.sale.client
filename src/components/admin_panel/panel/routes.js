@@ -22,8 +22,19 @@ import Typography from "./views/Typography.jsx";
 import Icons from "./views/Icons.jsx";
 import Maps from "./views/Maps.jsx";
 import Notifications from "./views/Notifications.jsx";
+import Main from "./views/Main";
 
 const dashboardRoutes = [
+  {
+    path: "/",
+    name: "Main",
+    component: Main,
+    layout: "/admin",
+    icon: "pe-7s-monitor",
+    routeProps: {
+      exact: true
+    }
+  },
   {
     path: "/dashboard",
     name: "Dashboard",
