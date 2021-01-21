@@ -1,13 +1,8 @@
-import React, {useContext} from "react";
+import React from "react";
 import Link from "../shared/Link";
-import AuthenticationContext from "../auth/AuthenticationContext";
-import ModalPortal from "../shared/ModalPortal";
-import {ModalWindow, WINDOW_TYPE} from "../shared/ModalWindow";
-import LoginForm from "../shared/LoginForm";
+import ModalLoginButton from "../shared/ModalLoginButton";
 
 function Navbar() {
-  const authContext = useContext(AuthenticationContext);
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top scrolling-navbar">
       <Link className="navbar-brand" to="/">Navbar</Link>
@@ -32,14 +27,7 @@ function Navbar() {
         </ul>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <button type="button" className="btn btn-outline-info" data-toggle="modal" data-target="#doby">
-              {authContext.authenticated ? "Log out" : "Log in"}
-            </button>
-            <ModalPortal>
-              <ModalWindow id={"doby"} title={"Login form"}>
-                <LoginForm onSubmit={authContext.initiateLogin}/>
-              </ModalWindow>
-            </ModalPortal>
+            <ModalLoginButton />
           </li>
         </ul>
       </div>

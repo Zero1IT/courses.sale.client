@@ -1,6 +1,6 @@
 import React, {Suspense} from "react";
 
-import CircleLoader from "./panel/components/CircleLoader";
+import CircleLoader from "../shared/CircleLoader";
 import {Route, Switch} from "react-router-dom";
 
 const AdminComponent = React.lazy(() => import('./panel/AdminComponent'));

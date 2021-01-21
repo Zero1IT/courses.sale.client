@@ -26,7 +26,8 @@ const types = {
  */
 function ModalWindow({id, children, title, type}) {
   return (
-    <div id={id} className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="xModalTitle" aria-hidden="true">
+    <div id={id} className="modal fade" tabIndex="-1" role="dialog"
+         aria-labelledby="xModalTitle" aria-hidden="true">
       <div className={"modal-dialog " + (types[type] || "")}>
         <div className="modal-content">
           <div className="modal-header">

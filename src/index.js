@@ -1,4 +1,4 @@
-import "./css/custom.css";
+import "./css/custom.scss";
 import "./css/icons/icofont.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
