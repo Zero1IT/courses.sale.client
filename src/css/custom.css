@@ -15,6 +15,10 @@
     background: #ead518;
 }
 
+.fixed-form-row-100 {
+    height: 100px;
+}
+
 .scrolling-navbar {
     height: 80px;
     transition: all 0.4s;

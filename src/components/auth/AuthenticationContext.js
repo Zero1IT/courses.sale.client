@@ -4,5 +4,5 @@ export default React.createContext({
   authenticated: false,
   user: {},
   accessToken: "",
-  initiateLogin: {}
+  initiateLogin: async () => { throw new Error('Need to be override')},
 });

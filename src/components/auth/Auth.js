@@ -9,8 +9,8 @@ class Auth extends React.Component {
     accessToken: ""
   }
 
-  initiateLogin = () => {
-
+  initiateLogin = (data) => {
+    console.log(data);
   }
 
   render() {
