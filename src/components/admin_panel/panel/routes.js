@@ -23,6 +23,7 @@ import Icons from "./views/Icons.jsx";
 import Maps from "./views/Maps.jsx";
 import Notifications from "./views/Notifications.jsx";
 import Main from "./views/Main";
+import UsersControl from "./views/UsersControl";
 
 const dashboardRoutes = [
   {
@@ -47,6 +48,13 @@ const dashboardRoutes = [
     name: "User Profile",
     icon: "pe-7s-user",
     component: UserProfile,
+    layout: "/admin"
+  },
+  {
+    path: "/user-panel",
+    name: "User panel",
+    icon: "pe-7s-users",
+    component: UsersControl,
     layout: "/admin"
   },
   {

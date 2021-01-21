@@ -15,8 +15,8 @@
 
 .checkbox label::before,
 .checkbox label::after{
-  font-family: 'FontAwesome';
-  content: "\f096";
+  font-family: 'Font Awesome 5 Free';
+  content: "\f14a";
   display: inline-block;
   position: absolute;
   width: 20px;
@@ -27,7 +27,7 @@
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  top: 1px;
+  top: -10px;
   color: $medium-gray;
   transition: color 0.2s linear;
   padding: 1px;
@@ -48,8 +48,8 @@
 }
 
 .checkbox input[type="checkbox"]:checked + label::after{
-    font-family: 'FontAwesome';
-    content: "\f046";
+    font-family: 'Font Awesome 5 Free';
+    content: "\f14a";
 }
 
 .checkbox input[type="checkbox"]:checked + label::after{

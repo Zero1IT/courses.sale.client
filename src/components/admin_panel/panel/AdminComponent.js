@@ -18,11 +18,13 @@
 import React from "react";
 
 import "./assets/css/animate.min.css";
-import "./assets/css/light-dashboard-react.css";
+import "./assets/sass/light-bootstrap-dashboard-react.scss";
+import "react-toggle/style.css"
 import "./assets/css/demo.css";
 import "./assets/css/pe-icon-7-stroke.css";
 import "./assets/css/fonts/css/fontawesome.min.css"
 import "./assets/css/fonts/css/all.css"
+import "./assets/css/fonts/css/solid.css"
 
 import Admin from "./layouts/Admin";
 import {Route} from "react-router-dom";
