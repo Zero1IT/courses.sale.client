@@ -3,7 +3,7 @@ import Wrapper from "./wrapper/Wrapper";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import AdminPage from "./admin_panel/AdminPage";
 import Auth from "./auth/Auth";
-import AuthService from "../services/AuthService";
+import AuthService from "../js/services/AuthService";
 import CircleLoader from "./shared/CircleLoader";
 
 function App() {

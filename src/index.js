@@ -7,11 +7,24 @@ import "./js/external.js";
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
-import App from "./components/App";
+import App from "./site/App";
+import {applyMiddleware, createStore, compose} from "redux";
+import rootReducer from "./site/storage/rootReducer";
+import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+
+const redux = createStore(rootReducer, compose(
+  applyMiddleware(
+    thunk
+  ),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={redux}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

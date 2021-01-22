@@ -1,16 +1,18 @@
 import React from "react";
 import AuthenticationContext from "./AuthenticationContext";
-import authService from "../../services/AuthService"
+import authService from "../../js/services/AuthService"
+
+const init = {
+  authenticated: false,
+  user: {},
+  accessToken: ""
+};
 
 class Auth extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = this.parseToken(this.props.access) || {
-      authenticated: false,
-      user: {},
-      accessToken: ""
-    }
+    this.state = this.parseToken(this.props.access) || init;
   }
 
   tryLogin = async () => {
@@ -61,7 +63,8 @@ class Auth extends React.Component {
   }
 
   logout = () => {
-
+    authService.clearTokens();
+    this.setState(init);
   }
 
   render() {

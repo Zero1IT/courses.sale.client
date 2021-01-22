@@ -44,9 +44,9 @@ class AdminNavbarLinks extends Component {
             <NavDropdown.Item divider />
             <NavDropdown.Item eventKey={2.5}>Separated link</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link>
+          <Nav.Item>
             <ModalLoginButton simple/>
-          </Nav.Link>
+          </Nav.Item>
         </Nav>
       </Container>
     );
