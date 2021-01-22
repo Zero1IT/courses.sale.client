@@ -17,20 +17,17 @@
 */
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import NotificationSystem from "react-notification-system";
 
-import AdminNavbar from "../components/Navbars/AdminNavbar";
+import Header from "../components/Navbars/Header";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
 import FixedPlugin from "../components/FixedPlugin/FixedPlugin.jsx";
 
-import { style } from "../variables/Variables.jsx";
-
 import routes from "../routes.js";
-
 import image from "../assets/img/sidebar-3.jpg";
 
 class Admin extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -40,50 +37,16 @@ class Admin extends Component {
       hasImage: true,
       fixedClasses: "dropdown show-dropdown open"
     };
+    this.mainPanelRef = React.createRef();
   }
-  handleNotificationClick = position => {
-    const color = Math.floor(Math.random() * 4 + 1);
-    let level;
-    switch (color) {
-      case 1:
-        level = "success";
-        break;
-      case 2:
-        level = "warning";
-        break;
-      case 3:
-        level = "error";
-        break;
-      case 4:
-        level = "info";
-        break;
-      default:
-        break;
-    }
-    this.state._notificationSystem.addNotification({
-      title: <span data-notify="icon" className="pe-7s-gift" />,
-      message: (
-        <div>
-          Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for
-          every web developer.
-        </div>
-      ),
-      level: level,
-      position: position,
-      autoDismiss: 15
-    });
-  };
+
   getRoutes = routes => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
-          <Route
-            path={prop.layout + prop.path}
+          <Route path={prop.layout + prop.path}
             render={props => (
-              <prop.component
-                {...props}
-                handleClick={this.handleNotificationClick}
-              />
+              <prop.component {...props} />
             )}
             key={key}
             {...prop.routeProps}
@@ -94,25 +57,29 @@ class Admin extends Component {
       }
     });
   };
+
   getBrandText = () => {
-    // reverse for not to match / (root) in start
-    const reversedRoutes = routes.reverse();
-    for (let i = 0; i < reversedRoutes.length; i++) {
-      if (this.props.location.pathname.indexOf(reversedRoutes[i].layout + reversedRoutes[i].path) !== -1) {
-        return reversedRoutes[i].name;
+    for (let i = 0; i < routes.length; i++) {
+      if (this.props.location.pathname.endsWith(routes[i].layout + routes[i].path)) {
+        return routes[i].name;
       }
     }
-    return "Brand";
+    
+    return "Main";
   };
+
   handleImageClick = image => {
     this.setState({ image: image });
   };
+
   handleColorClick = color => {
     this.setState({ color: color });
   };
+
   handleHasImage = hasImage => {
     this.setState({ hasImage: hasImage });
   };
+
   handleFixedClick = () => {
     if (this.state.fixedClasses === "dropdown") {
       this.setState({ fixedClasses: "dropdown show-dropdown show" });
@@ -120,66 +87,30 @@ class Admin extends Component {
       this.setState({ fixedClasses: "dropdown" });
     }
   };
-  componentDidMount() {
-    this.setState({ _notificationSystem: this.refs.notificationSystem });
-    const _notificationSystem = this.refs.notificationSystem;
-    const color = Math.floor(Math.random() * 4 + 1);
-    let level;
-    switch (color) {
-      case 1:
-        level = "success";
-        break;
-      case 2:
-        level = "warning";
-        break;
-      case 3:
-        level = "error";
-        break;
-      case 4:
-        level = "info";
-        break;
-      default:
-        break;
-    }
-    _notificationSystem.addNotification({
-      title: <span data-notify="icon" className="pe-7s-gift" />,
-      message: (
-        <div>
-          Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for
-          every web developer.
-        </div>
-      ),
-      level: level,
-      position: "tr",
-      autoDismiss: 15
-    });
-  }
-  componentDidUpdate(e) {
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
     if (
       window.innerWidth < 993 &&
-      e.history.location.pathname !== e.location.pathname &&
+      prevProps.history.location.pathname !== prevProps.location.pathname &&
       document.documentElement.className.indexOf("nav-open") !== -1
     ) {
       document.documentElement.classList.toggle("nav-open");
     }
-    if (e.history.action === "PUSH") {
+    if (prevProps.history.action === "PUSH") {
       document.documentElement.scrollTop = 0;
       document.scrollingElement.scrollTop = 0;
-      this.refs.mainPanel.scrollTop = 0;
+      this.mainPanelRef.current.scrollTop = 0;
     }
   }
+
   render() {
     return (
       <div className="wrapper">
-        <NotificationSystem ref="notificationSystem" style={style} />
         <Sidebar {...this.props} routes={routes} image={this.state.image}
         color={this.state.color}
         hasImage={this.state.hasImage}/>
-        <div id="main-panel" className="main-panel" ref="mainPanel">
-          <AdminNavbar
-            {...this.props}
-            brandText={this.getBrandText()}
-          />
+        <div id="main-panel" className="main-panel" ref={this.mainPanelRef}>
+          <Header{...this.props} brandText={this.getBrandText()} />
           <Switch>{this.getRoutes(routes)}</Switch>
           <Footer />
           <FixedPlugin

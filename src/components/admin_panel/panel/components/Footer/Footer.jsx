@@ -16,35 +16,37 @@
 
 */
 import React, { Component } from "react";
+import { Container } from "react-bootstrap";
 
 class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        <div className="container-fluid">
-          <nav className="float-left">
+        <Container fluid>
+          <nav className="pull-left">
             <ul>
               <li>
-                <a href="#todo">Home</a>
+                <a href="#pablo">Home</a>
               </li>
               <li>
-                <a href="#todo">Company</a>
+                <a href="#pablo">Company</a>
               </li>
               <li>
-                <a href="#todo">Portfolio</a>
+                <a href="#pablo">Portfolio</a>
               </li>
               <li>
-                <a href="#todo">Blog</a>
+                <a href="#pablo">Blog</a>
               </li>
             </ul>
           </nav>
-          <p className="copyright float-right">
+          <p className="copyright pull-right">
             &copy; {new Date().getFullYear()}{" "}
             <a href="http://www.creative-tim.com?ref=lbr-footer">
               Creative Tim
-            </a>, made with love for a better web
+            </a>
+            , made with love for a better web
           </p>
-        </div>
+        </Container>
       </footer>
     );
   }

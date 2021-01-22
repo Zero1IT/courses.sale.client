@@ -16,11 +16,12 @@
 
 */
 import React, { Component } from "react";
+import { Button } from "react-bootstrap";
 import cx from "classnames";
 
 class CustomButton extends Component {
   render() {
-    const { fill, simple, pullRight, round, block, className, children, ...rest } = this.props;
+    const { fill, simple, pullRight, round, block, children, ...rest } = this.props;
 
     const btnClasses = cx({
       "btn-fill": fill,
@@ -30,7 +31,7 @@ class CustomButton extends Component {
       "btn-round": round
     });
 
-    return <button className={[btnClasses, className].join(" ")} {...rest}>{children}</button>;
+    return <Button className={btnClasses} {...rest}>{children}</Button>;
   }
 }
 

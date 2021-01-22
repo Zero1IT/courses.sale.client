@@ -17,6 +17,7 @@
 */
 import React from "react";
 import ChartistGraph from "react-chartist";
+import { Container, Row, Col } from "react-bootstrap";
 
 import {Card} from "../components/Card/Card.jsx";
 import {StatsCard} from "../components/StatsCard/StatsCard.jsx";
@@ -49,9 +50,9 @@ function Dashboard() {
 
   return (
     <div className="content">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-6 col-lg-3">
+      <Container fluid>
+        <Row>
+          <Col lg={3} sm={6}>
             <StatsCard
               bigIcon={<i className="pe-7s-server text-warning" />}
               statsText="Capacity"
@@ -59,8 +60,8 @@ function Dashboard() {
               statsIcon={<i className="fa fa-refresh" />}
               statsIconText="Updated now"
             />
-          </div>
-          <div className="col-sm-6 col-lg-3">
+          </Col>
+          <Col lg={3} sm={6}>
             <StatsCard
               bigIcon={<i className="pe-7s-wallet text-success" />}
               statsText="Revenue"
@@ -68,8 +69,8 @@ function Dashboard() {
               statsIcon={<i className="fa fa-calendar-o" />}
               statsIconText="Last day"
             />
-          </div>
-          <div className="col-sm-6 col-lg-3">
+          </Col>
+          <Col lg={3} sm={6}>
             <StatsCard
               bigIcon={<i className="pe-7s-graph1 text-danger" />}
               statsText="Errors"
@@ -77,8 +78,8 @@ function Dashboard() {
               statsIcon={<i className="fa fa-clock-o" />}
               statsIconText="In the last hour"
             />
-          </div>
-          <div className="col-sm-6 col-lg-3">
+          </Col>
+          <Col lg={3} sm={6}>
             <StatsCard
               bigIcon={<i className="fa fa-twitter text-info" />}
               statsText="Followers"
@@ -86,10 +87,10 @@ function Dashboard() {
               statsIcon={<i className="fa fa-refresh" />}
               statsIconText="Updated now"
             />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-8">
+          </Col>
+        </Row>
+        <Row>
+          <Col md={8}>
             <Card
               statsIcon="fa fa-history"
               id="chartHours"
@@ -110,8 +111,8 @@ function Dashboard() {
                 <div className="legend">{createLegend(legendSales)}</div>
               }
             />
-          </div>
-          <div className="col-md-4">
+          </Col>
+          <Col md={4}>
             <Card
               statsIcon="fa fa-clock-o"
               title="Email Statistics"
@@ -129,11 +130,11 @@ function Dashboard() {
                 <div className="legend">{createLegend(legendPie)}</div>
               }
             />
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <div className="row">
-          <div className="col-md-6">
+        <Row>
+          <Col md={6}>
             <Card
               id="chartActivity"
               title="2014 Sales"
@@ -154,9 +155,9 @@ function Dashboard() {
                 <div className="legend">{createLegend(legendBar)}</div>
               }
             />
-          </div>
+          </Col>
 
-          <div className="col-md-6">
+          <Col md={6}>
             <Card
               title="Tasks"
               category="Backend development"
@@ -170,9 +171,9 @@ function Dashboard() {
                 </div>
               }
             />
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

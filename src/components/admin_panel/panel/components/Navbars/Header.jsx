@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Navbar } from "react-bootstrap";
 
 import AdminNavbarLinks from "./AdminNavbarLinks.jsx";
 import Link from "../../../../shared/Link";
@@ -29,18 +30,15 @@ class Header extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg p-0 navbar-light bg-light nav-open">
-        <Link className="navbar-brand m-0" to="/admin">{this.props.brandText}</Link>
-        <button className="navbar-toggle collapse" type="button" onClick={this.mobileSidebarToggle}>
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" />
-          <span className="icon-bar" />
-          <span className="icon-bar" />
-        </button>
-        <div className="navbar-collapse collapse">
+      <Navbar>
+        <Navbar.Brand>
+          <Link to="/admin">{this.props.brandText}</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle onClick={this.mobileSidebarToggle} />
+        <Navbar.Collapse>
           <AdminNavbarLinks />
-        </div>
-      </nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }

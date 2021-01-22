@@ -1,5 +1,6 @@
 import React from "react";
 import ProcessRow from "./ProcessRow";
+import {Card, Col, Container, Row} from "react-bootstrap";
 
 function ProcessSection() {
 
@@ -11,21 +12,21 @@ function ProcessSection() {
   ];
 
   return (
-    <section className="container">
+    <Container as={"section"}>
       <div className="block-h-1 text-center pb-5">
-        <div className="row justify-content-center">
-          <div className="col-xl-4 col-6">
-            <div className="card">
-              <div className="card-body">
+        <Row className="justify-content-center">
+          <Col xl={"4"} xs={"6"}>
+            <Card>
+              <Card.Body>
                 <h1>Процесс</h1>
                 <p>Процесс записи пользователя на курсы, предоставляемые порталом</p>
-              </div>
-            </div>
-          </div>
-        </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
         {processes.map(item => <ProcessRow content={item[0]} text={item[1]} />)}
       </div>
-    </section>
+    </Container>
   )
 }
 

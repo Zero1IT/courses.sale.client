@@ -18,20 +18,13 @@
 import React, {Component} from "react";
 import Checkbox from "../CustomCheckbox/CustomCheckbox.jsx";
 import Button from "../CustomButton/CustomButton.jsx";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
 export class Tasks extends Component {
-  handleCheckbox = event => {
-    const target = event.target;
-    this.setState({
-      [target.name]: target.checked
-    });
-  };
 
   render() {
-    const edit = <button type="button" className="btn btn-secondary" data-toggle="tooltip" data-placement="top"
-                         title="edit_tooltip">Edit Task</button>;
-    const remove = <button type="button" className="btn btn-secondary" data-toggle="tooltip" data-placement="top"
-                           title="remove_tooltip">Remove</button>;
+    const edit = <Tooltip id="edit_tooltip">Edit Task</Tooltip>;
+    const remove = <Tooltip id="remove_tooltip">Remove</Tooltip>;
     const tasks_title = [
       'Sign contract for "What are conference organizers afraid of?"',
       "Lines From Great Russian Literature? Or E-mails From My Boss?",
@@ -47,26 +40,25 @@ export class Tasks extends Component {
       tasks.push(
         <tr key={i}>
           <td>
-            <Checkbox
-              number={number}
-              isChecked={i === 1 || i === 2 ? true : false}
-            />
+            <Checkbox number={number} isChecked={i === 1 || i === 2} />
           </td>
           <td>{tasks_title[i]}</td>
           <td className="td-actions text-right">
-            <Button bsStyle="info" simple className="btn btn-xs btn-info" data-toggle="tooltip" data-placement="top"
-                    title="Edit">
-              <i className="fa fa-edit"/>
-            </Button>
-            <Button bsStyle="danger" simple className="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top"
-                    title="Remove">
-              <i className="fa fa-times"/>
-            </Button>
+            <OverlayTrigger placement="top" overlay={edit}>
+              <Button variant="info" simple type="button" size="sm">
+                <i className="fa fa-edit" />
+              </Button>
+            </OverlayTrigger>
+
+            <OverlayTrigger placement="top" overlay={remove}>
+              <Button variant="danger" simple type="button" size="sm">
+                <i className="fa fa-times" />
+              </Button>
+            </OverlayTrigger>
           </td>
         </tr>
       );
     }
-    // TODO: OverlayTrigger
     return <tbody>{tasks}</tbody>;
   }
 }

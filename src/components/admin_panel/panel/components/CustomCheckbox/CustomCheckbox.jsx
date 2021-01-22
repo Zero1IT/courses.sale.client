@@ -21,7 +21,7 @@ class CustomCheckbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      is_checked: props.isChecked ? true : false
+      is_checked: !!props.isChecked
     };
     this.handleClick = this.handleClick.bind(this);
   }

@@ -16,17 +16,19 @@
 
 */
 import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 import Card from "../components/Card/Card";
 import { iconsArray } from "../variables/Variables.jsx";
 
 class Icons extends Component {
+
   render() {
     return (
       <div className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">
+        <Container fluid>
+          <Row>
+            <Col md={12}>
               <Card
                 title="202 Awesome Stroke Icons"
                 ctAllIcons
@@ -43,24 +45,30 @@ class Icons extends Component {
                   </span>
                 }
                 content={
-                  <div className="row">
+                  <Row>
                     {iconsArray.map((prop, key) => {
                       return (
-                        <div className="col-lg-2 col-md-3 col-sm-4 col-6 font-icon-list"
-                          key={key}>
+                        <Col
+                          lg={2}
+                          md={3}
+                          sm={4}
+                          xs={6}
+                          className="font-icon-list"
+                          key={key}
+                        >
                           <div className="font-icon-detail">
                             <i className={prop} />
                             <input type="text" defaultValue={prop} />
                           </div>
-                        </div>
+                        </Col>
                       );
                     })}
-                  </div>
+                  </Row>
                 }
               />
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

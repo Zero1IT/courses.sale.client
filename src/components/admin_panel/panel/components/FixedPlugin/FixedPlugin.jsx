@@ -59,7 +59,7 @@ class FixedPlugin extends Component {
               <div className="clearfix" />
             </li>
             <li className="adjustments-line">
-              <a className="switch-trigger">
+              <span className="switch-trigger">
                 <p>Filters</p>
                 <div className="pull-right">
                   <span
@@ -130,11 +130,11 @@ class FixedPlugin extends Component {
                   />
                 </div>
                 <div className="clearfix" />
-              </a>
+              </span>
             </li>
             <li className="header-title">Sidebar Images</li>
             <li className={this.state["bgImage"] === imagine1 ? "active" : ""}>
-              <a
+              <span
                 className="img-holder switch-trigger"
                 onClick={() => {
                   this.setState({ bgImage: imagine1 });
@@ -142,10 +142,10 @@ class FixedPlugin extends Component {
                 }}
               >
                 <img src={imagine1} alt="..." />
-              </a>
+              </span>
             </li>
             <li className={this.state["bgImage"] === imagine2 ? "active" : ""}>
-              <a
+              <span
                 className="img-holder switch-trigger"
                 onClick={() => {
                   this.setState({ bgImage: imagine2 });
@@ -153,10 +153,10 @@ class FixedPlugin extends Component {
                 }}
               >
                 <img src={imagine2} alt="..." />
-              </a>
+              </span>
             </li>
             <li className={this.state["bgImage"] === imagine3 ? "active" : ""}>
-              <a
+              <span
                 className="img-holder switch-trigger"
                 onClick={() => {
                   this.setState({ bgImage: imagine3 });
@@ -164,10 +164,10 @@ class FixedPlugin extends Component {
                 }}
               >
                 <img src={imagine3} alt="..." />
-              </a>
+              </span>
             </li>
             <li className={this.state["bgImage"] === imagine4 ? "active" : ""}>
-              <a
+              <span
                 className="img-holder switch-trigger"
                 onClick={() => {
                   this.setState({ bgImage: imagine4 });
@@ -175,7 +175,7 @@ class FixedPlugin extends Component {
                 }}
               >
                 <img src={imagine4} alt="..." />
-              </a>
+              </span>
             </li>
 
             <li className="button-container">
@@ -183,6 +183,7 @@ class FixedPlugin extends Component {
                 <a
                   href="https://google.com"
                   target="_blank"
+                  rel="noreferrer"
                   className="btn btn-success btn-block btn-fill">
                   More info
                 </a>
@@ -192,6 +193,7 @@ class FixedPlugin extends Component {
               <a
                 href="https://yandex.ru"
                 target="_blank"
+                rel="noreferrer"
                 className="btn btn-fill btn-info">
                 More info
               </a>

@@ -1,51 +1,37 @@
 import React from "react";
+import {Modal, Alert} from "react-bootstrap";
 
-/**
- * Enum string values.
- * @enum {string}
- */
-const WINDOW_TYPE = {
-  small: "small",
-  large: "large",
-  medium: "medium"
-};
-
-const types = {
-  [WINDOW_TYPE.large]: "modal-lg",
-  [WINDOW_TYPE.small]: "modal-sm",
-  [WINDOW_TYPE.medium]: "",
-}
 
 /**
  * @param id {Number} - modal id
+ * @param show {Boolean}
  * @param children {Any} - modal content
  * @param title {String} - modal title
- * @param type {WINDOW_TYPE} - modal type
+ * @param size {"lg"|"sm"|undefined} - modal type
+ * @param message {{text: String, type: String}}
+ * @param onHide
  * @return {JSX.Element}
  * @constructor
  */
-function ModalWindow({id, children, title, type}) {
+function ModalWindow({id, show, children, title, size, message, onHide}) {
   return (
-    <div id={id} className="modal fade" tabIndex="-1" role="dialog"
-         aria-labelledby="xModalTitle" aria-hidden="true">
-      <div className={"modal-dialog " + (types[type] || "")}>
-        <div className="modal-content">
-          <div className="modal-header">
-            <h4 className="modal-title" id="mySmallModalLabel">{title}</h4>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            {children}
-          </div>
-        </div>
-      </div>
-    </div>
+    <Modal show={show} onHide={onHide} size={size}>
+      <Modal.Header closeButton>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {children}
+      </Modal.Body>
+      {
+      message && message.type && message.text &&
+      <Modal.Footer>
+        <Alert variant={message.type}>
+          {message.text}
+        </Alert>
+      </Modal.Footer>
+      }
+    </Modal>
   )
 }
 
-export {
-  ModalWindow,
-  WINDOW_TYPE
-};
+export default ModalWindow

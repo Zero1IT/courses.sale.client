@@ -1,19 +1,20 @@
 import React from "react";
 import FeaturedCard from "./FeaturedCard";
+import {Container, Row} from "react-bootstrap";
 
 function FeaturedSection() {
 
   const test = [1, 2, 3, 4];
 
   return (
-    <section className="container pt-5 bg-image-section bg-feature-section">
-      <div className="row justify-content-center">
+    <Container as={"section"} className="pt-5 bg-image-section bg-feature-section">
+      <Row className="justify-content-center">
         {test.map(() => <FeaturedCard />)}
-      </div>
-      <div className="row">
+      </Row>
+      <Row>
         {test.map(() => <FeaturedCard />)}
-      </div>
-    </section>
+      </Row>
+    </Container>
   )
 }
 

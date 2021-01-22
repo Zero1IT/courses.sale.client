@@ -1,11 +1,8 @@
-import "./css/custom.scss";
-import "./css/icons/icofont.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import "./css/icons/icofont.min.css";
+import "./css/custom.scss";
 import "./js/external.js";
-import "jquery/dist/jquery.slim.min.js"
-import "popper.js/dist/popper.min.js"
-import "bootstrap/dist/js/bootstrap.min.js";
 
 import React from "react";
 import ReactDOM from "react-dom";

@@ -52,10 +52,15 @@ class Auth extends React.Component {
     })
   }
 
+  logout = () => {
+
+  }
+
   render() {
     const authValue = {
       ...this.state,
       initiateLogin: this.initiateLogin,
+      logout: this.logout,
     }
 
     return (

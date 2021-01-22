@@ -1,32 +1,33 @@
 import React from "react";
+import {Row, Col, Container} from "react-bootstrap";
 
 function AboutUsSection() {
   return (
-    <section className="container">
-      <div className="row block-h-1">
-        <div className="col-8">
-          <div className="row">
-            <div className="col-6 col-sm-5 col-lg-3 mt-5 pt-5">
+    <Container as={"section"}>
+      <Row className="block-h-1">
+        <Col xs={"8"}>
+          <Row>
+            <Col xs={"6"} sm={"5"} lg={"3"} className="mt-5 pt-5">
               <h1>Немного о нас</h1>
               <hr className="wrap-line float-left" width="50px"/>
-            </div>
-            <div className="col-12 mt-5">
+            </Col>
+            <Col xs={"12"} className="mt-5">
               <p>
                 Здесь нужен текст, помогите его придумать, помогите его придумать, помогите его придумать,
                 помогите его придумать, помогите его придумать, помогите его придумать, помогите его придумать,
                 помогите его придумать, помогите его придумать, помогите его придумать.
               </p>
-            </div>
-            <div className="col-12 col-md-6 col-sm-6 mt-4">
+            </Col>
+            <Col xs={"12"} md={"6"} sm={"6"} className="mt-4">
               <button className="btn btn-blw">Узнать больше</button>
-            </div>
-          </div>
-        </div>
-        <div className="col-4 img-col d-none d-md-block">
+            </Col>
+          </Row>
+        </Col>
+        <Col xs={"4"} className="img-col d-none d-md-block">
           <img src="/img/graduation.jpg" alt="student" className="adj-img"/>
-        </div>
-      </div>
-    </section>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

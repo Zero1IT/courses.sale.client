@@ -1,63 +1,53 @@
 import React, { Component } from "react";
+import {Container, Nav, NavDropdown} from "react-bootstrap";
 
 class AdminNavbarLinks extends Component {
   render() {
-    return (
+    const notification = (
       <>
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link">
-              <i className="fas fa-tachometer-alt"/>
-              <p className="d-lg-none">Dashboard</p>
-            </a>
-          </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="notify-dropdown" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
-                <i className="fa fa-globe" />
-                <b className="caret" />
-                <span className="notification">5</span>
-                <p className="d-lg-none">Notification</p>
-            </a>
-            <div className="dropdown-menu" aria-labelledby="notify-dropdown">
-              <a className="dropdown-item">Notification 1</a>
-              <a className="dropdown-item">Notification 2</a>
-              <a className="dropdown-item">Notification 3</a>
-              <a className="dropdown-item">Notification 4</a>
-              <a className="dropdown-item">Another notifications</a>
-            </div>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">
-              <i className="fa fa-search" />
-              <p className="d-lg-none">Search</p>
-            </a>
-          </li>
-        </ul>
-        <ul className="nav navbar-nav ml-auto">
-          <li className="nav-item">
-            <a className="nav-link">Account</a>
-          </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarRightDropdown" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarRightDropdown">
-              <a className="dropdown-item" >Action</a>
-              <a className="dropdown-item" >Another action</a>
-              <a className="dropdown-item" >Something</a>
-              <a className="dropdown-item" >Another action</a>
-              <a className="dropdown-item" >Something</a>
-              <div className="dropdown-divider" />
-              <a className="dropdown-item" >Separated link</a>
-            </div>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">Log out</a>
-          </li>
-        </ul>
+        <i className="fa fa-globe" />
+        <b className="caret" />
+        <span className="notification">5</span>
+        <span className="hidden-lg hidden-md">Notification</span>
       </>
+    );
+    return (
+      <Container>
+        <Nav className="mr-auto">
+          <Nav.Link>
+            <i className="fas fa-tachometer-alt" />
+            <span className="hidden-lg hidden-md">Dashboard</span>
+          </Nav.Link>
+          <NavDropdown title={notification} id="basic-nav-dropdown">
+            <NavDropdown.Item eventKey={2.1}>Notification 1</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.2}>Notification 2</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.3}>Notification 3</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.4}>Notification 4</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.5}>Another notifications</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link>
+            <i className="fa fa-search" />
+            <span className="hidden-lg hidden-md">Search</span>
+          </Nav.Link>
+        </Nav>
+        <Nav className="ml-auto">
+          <Nav.Link>
+            Account
+          </Nav.Link>
+          <NavDropdown title="Dropdown" id="basic-nav-dropdown-right">
+            <NavDropdown.Item eventKey={2.1}>Action</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.2}>Another action</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.3}>Something</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.4}>Another action</NavDropdown.Item>
+            <NavDropdown.Item eventKey={2.5}>Something</NavDropdown.Item>
+            <NavDropdown.Item divider />
+            <NavDropdown.Item eventKey={2.5}>Separated link</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link>
+            Log out
+          </Nav.Link>
+        </Nav>
+      </Container>
     );
   }
 }

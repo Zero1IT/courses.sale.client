@@ -1,5 +1,6 @@
 import React, {useMemo} from "react";
 import StatisticCard from "./StatisticCard";
+import {Col, Container, Row} from "react-bootstrap";
 
 function StatisticsSection() {
 
@@ -10,17 +11,17 @@ function StatisticsSection() {
   ], []);
 
   return (
-    <section className="container">
-      <div className="row block-h-1">
-        <div className="col">
+    <Container as={"section"}>
+      <Row className="block-h-1">
+        <Col>
           <h1 className="text-center p-4">Статистика</h1>
           <p className="text-center mb-5">Мы помогаем совершенствовать твои знания</p>
-          <div className="row justify-content-around">
+          <Row className="justify-content-around">
             {cards.map(item => <StatisticCard {...item} />)}
-          </div>
-        </div>
-      </div>
-    </section>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

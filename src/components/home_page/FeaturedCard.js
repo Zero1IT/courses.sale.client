@@ -1,8 +1,9 @@
 import React from "react";
+import {Card} from "react-bootstrap";
 
 function FeaturedCard() {
   return (
-    <div className="card p-3 col-12 col-md-6 col-lg-3 slide-up-anim-parent border-0 bg-transparent">
+    <Card className="p-3 col-12 col-md-6 col-lg-3 slide-up-anim-parent border-0 bg-transparent">
       <div className="card-wrapper text-center">
         <div className="card-img position-relative">
           <img src="/img/065.jpg" className="w-100" alt="featured"/>
@@ -14,7 +15,7 @@ function FeaturedCard() {
           <h4 className="card-title">Footer</h4>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
 

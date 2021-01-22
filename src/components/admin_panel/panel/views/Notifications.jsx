@@ -16,14 +16,16 @@
 
 */
 import React, { Component } from "react";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 
 import Button from "../components/CustomButton/CustomButton.jsx";
 
 class Notifications extends Component {
+
   render() {
     return (
       <div className="content">
-        <div className="container-fluid">
+        <Container fluid>
           <div className="card">
             <div className="header">
               <h4 className="title">Notifications</h4>
@@ -47,19 +49,19 @@ class Notifications extends Component {
               </p>
             </div>
             <div className="content">
-              <div className="row">
-                <div className="col-md-6">
+              <Row>
+                <Col md={6}>
                   <h5>Notifications Style</h5>
-                  <div className="alert alert-info">
+                  <Alert variant="info">
                     <span>This is a plain notification</span>
-                  </div>
-                  <div className="alert alert-info">
+                  </Alert>
+                  <Alert variant="info">
                     <button type="button" aria-hidden="true" className="close">
                       &#x2715;
                     </button>
                     <span>This is a notification with close button.</span>
-                  </div>
-                  <div className="alert alert-info alert-with-icon">
+                  </Alert>
+                  <Alert variant="info" className="alert-with-icon">
                     <button type="button" aria-hidden="true" className="close">
                       &#x2715;
                     </button>
@@ -67,8 +69,8 @@ class Notifications extends Component {
                     <span data-notify="message">
                       This is a notification with close button and icon.
                     </span>
-                  </div>
-                  <div className="alert alert-info alert-with-icon">
+                  </Alert>
+                  <Alert variant="info" className="alert-with-icon">
                     <button type="button" aria-hidden="true" className="close">
                       &#x2715;
                     </button>
@@ -79,121 +81,93 @@ class Notifications extends Component {
                       are always vertically aligned. This is a beautiful
                       notification. So you don't have to worry about the style.
                     </span>
-                  </div>
-                </div>
-                <div className="col-md-6">
+                  </Alert>
+                </Col>
+                <Col md={6}>
                   <h5>Notification states</h5>
-                  <div className="alert alert-info">
+                  <Alert variant="info">
                     <button type="button" aria-hidden="true" className="close">
                       &#x2715;
                     </button>
                     <span>
-                      <b> Info - </b> This is a regular notification made with
-                      bsStyle="info"
+                      <b> Info - </b> This is a regular notification made with variant="info"
                     </span>
-                  </div>
-                  <div className="alert alert-success">
+                  </Alert>
+                  <Alert variant="success">
                     <button type="button" aria-hidden="true" className="close">
                       &#x2715;
                     </button>
                     <span>
-                      <b> Success - </b> This is a regular notification made
-                      with bsStyle="success"
+                      <b> Success - </b> This is a regular notification made with variant="success"
                     </span>
-                  </div>
-                  <div className="alert alert-warning">
+                  </Alert>
+                  <Alert variant="warning">
                     <button type="button" aria-hidden="true" className="close">
                       &#x2715;
                     </button>
                     <span>
-                      <b> Warning - </b> This is a regular notification made
-                      with bsStyle="warning"
+                      <b> Warning - </b> This is a regular notification made with variant="warning"
                     </span>
-                  </div>
-                  <div className="alert alert-danger">
+                  </Alert>
+                  <Alert variant="danger">
                     <button type="button" aria-hidden="true" className="close">
                       &#x2715;
                     </button>
                     <span>
-                      <b> Danger - </b> This is a regular notification made with
-                      bsStyle="danger"
+                      <b> Danger - </b> This is a regular notification made with variant="danger"
                     </span>
-                  </div>
-                </div>
-              </div>
+                  </Alert>
+                </Col>
+              </Row>
               <br />
               <br />
               <div className="places-buttons">
-                <div className="row">
-                  <div className="col-md-6 text-center offset-md-3">
+                <Row>
+                  <Col md={6} className="text-center offset-md-3">
                     <h5>
                       Notifications Places
                       <p className="category">Click to view notifications</p>
                     </h5>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-2 offset-md-3">
-                    <Button
-                      className="btn btn-default"
-                      block
-                      onClick={() => this.props.handleClick("tl")}
-                    >
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={2} className="offset-md-3">
+                    <Button variant="default" block>
                       Top Left
                     </Button>
-                  </div>
-                  <div className="col-md-2">
-                    <Button
-                      className="btn btn-default"
-                      block
-                      onClick={() => this.props.handleClick("tc")}
-                    >
+                  </Col>
+                  <Col md={2}>
+                    <Button variant="default" block>
                       Top Center
                     </Button>
-                  </div>
-                  <div className="col-md-2">
-                    <Button
-                      className="btn btn-default"
-                      block
-                      onClick={() => this.props.handleClick("tr")}
-                    >
+                  </Col>
+                  <Col md={2}>
+                    <Button variant="default" block>
                       Top Right
                     </Button>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-2 offset-md-3">
-                    <Button
-                      className="btn btn-default"
-                      block
-                      onClick={() => this.props.handleClick("bl")}
-                    >
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={2} className="offset-md-3">
+                    <Button variant="default" block>
                       Bottom Left
                     </Button>
-                  </div>
-                  <div className="col-md-2">
-                    <Button
-                      className="btn btn-default"
-                      block
-                      onClick={() => this.props.handleClick("bc")}
-                    >
+                  </Col>
+                  <Col md={2}>
+                    <Button variant="default" block>
                       Bottom Center
                     </Button>
-                  </div>
-                  <div className="col-md-2">
-                    <Button
-                      className="btn btn-default"
-                      block
-                      onClick={() => this.props.handleClick("br")}
-                    >
+                  </Col>
+                  <Col md={2}>
+                    <Button variant="default" block>
                       Bottom Right
                     </Button>
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     );
   }

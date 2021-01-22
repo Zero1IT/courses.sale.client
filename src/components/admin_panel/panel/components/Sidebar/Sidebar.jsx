@@ -28,14 +28,15 @@ class Sidebar extends Component {
     this.state = {
       width: window.innerWidth
     };
+    this.updateDimensionsBind = this.updateDimensions.bind(this)
   }
 
   activeRoute(routeName) {
-    if (routeName === "/admin/") {
-      return this.props.location.pathname === "/admin/" || this.props.location.pathname === "/admin"
-        ? "active nav-item" : "nav-item";
+    let pathname = this.props.location.pathname;
+    if (pathname.endsWith("admin")) {
+      pathname += "/";
     }
-    return this.props.location.pathname.indexOf(routeName) > -1 ? "active nav-item" : "nav-item";
+    return pathname.endsWith(routeName) ? "active nav-item" : "nav-item";
   }
 
   updateDimensions() {
@@ -44,20 +45,20 @@ class Sidebar extends Component {
 
   componentDidMount() {
     this.updateDimensions();
-    window.addEventListener("resize", this.updateDimensions.bind(this));
+    window.addEventListener("resize", this.updateDimensionsBind);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensionsBind)
   }
 
   render() {
     const sidebarBackground = {
       backgroundImage: "url(" + this.props.image + ")"
     };
+
     return (
-      <div
-        id="sidebar"
-        className="sidebar"
-        data-color={this.props.color}
-        data-image={this.props.image}
-      >
+      <div id="sidebar" className="sidebar" data-color={this.props.color} data-image={this.props.image}>
         {this.props.hasImage ? (
           <div className="sidebar-background" style={sidebarBackground}/>
         ) : null}
@@ -84,9 +85,7 @@ class Sidebar extends Component {
                   >
                     <Link
                       to={prop.layout + prop.path}
-                      className="nav-link"
-                      activeClassName="active"
-                    >
+                      className="nav-link">
                       <i className={prop.icon}/>
                       <p>{prop.name}</p>
                     </Link>

@@ -16,6 +16,7 @@
 
 */
 import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 import Card from "../components/Card/Card.jsx";
 
@@ -23,9 +24,9 @@ class Typography extends Component {
   render() {
     return (
       <div className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">
+        <Container fluid>
+          <Row>
+            <Col md={12}>
               <Card
                 title="Light Bootstrap Table Heading"
                 category="Created using Roboto Font Family"
@@ -134,9 +135,9 @@ class Typography extends Component {
                   </div>
                 }
               />
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

@@ -16,13 +16,14 @@
 
 */
 import React, { Component } from "react";
+import { FormGroup, FormLabel, FormControl, Row } from "react-bootstrap";
 
-function FieldGroup({ label, bsClass, ...props }) {
+function  FieldGroup({ label, ...props }) {
   return (
-    <div className="form-group">
-      <div>{label}</div>
-      <input className={bsClass} {...props} />
-    </div>
+    <FormGroup>
+      <FormLabel>{label}</FormLabel>
+      <FormControl {...props} />
+    </FormGroup>
   );
 }
 
@@ -36,7 +37,7 @@ export class FormInputs extends Component {
         </div>
       );
     }
-    return <div className="row">{row}</div>;
+    return <Row>{row}</Row>;
   }
 }
 
