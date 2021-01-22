@@ -24,7 +24,7 @@ function ProcessSection() {
             </Card>
           </Col>
         </Row>
-        {processes.map(item => <ProcessRow content={item[0]} text={item[1]} />)}
+        {processes.map((item, i) => <ProcessRow key={i} content={item[0]} text={item[1]} />)}
       </div>
     </Container>
   )

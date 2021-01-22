@@ -3,7 +3,7 @@ import React, {Suspense} from "react";
 import CircleLoader from "../shared/CircleLoader";
 import {Route, Switch} from "react-router-dom";
 
-const AdminComponent = React.lazy(() => import('./panel/AdminComponent'));
+const AdminComponent = React.lazy(async () => import('./panel/AdminComponent'));
 
 const AdminPage = () => (
   <Suspense fallback={<CircleLoader />}>

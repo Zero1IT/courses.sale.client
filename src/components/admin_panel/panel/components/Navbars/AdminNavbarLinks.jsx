@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Container, Nav, NavDropdown} from "react-bootstrap";
+import ModalLoginButton from "../../../../shared/ModalLoginButton";
 
 class AdminNavbarLinks extends Component {
   render() {
@@ -44,7 +45,7 @@ class AdminNavbarLinks extends Component {
             <NavDropdown.Item eventKey={2.5}>Separated link</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link>
-            Log out
+            <ModalLoginButton simple/>
           </Nav.Link>
         </Nav>
       </Container>

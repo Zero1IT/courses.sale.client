@@ -23,7 +23,7 @@ class Footer extends Component {
     return (
       <footer className="footer">
         <Container fluid>
-          <nav className="pull-left">
+          <nav className="float-left">
             <ul>
               <li>
                 <a href="#pablo">Home</a>
@@ -39,12 +39,8 @@ class Footer extends Component {
               </li>
             </ul>
           </nav>
-          <p className="copyright pull-right">
-            &copy; {new Date().getFullYear()}{" "}
-            <a href="http://www.creative-tim.com?ref=lbr-footer">
-              Creative Tim
-            </a>
-            , made with love for a better web
+          <p className="copyright float-right">
+            &copy; {new Date().getFullYear()}{" "} Admin can everything
           </p>
         </Container>
       </footer>

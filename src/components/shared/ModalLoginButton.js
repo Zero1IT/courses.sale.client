@@ -6,7 +6,7 @@ import CircleLoader from "./CircleLoader";
 import {Button} from "react-bootstrap";
 import ModalConfirm from "./ModalConfirm";
 
-function ModalLoginButton() {
+function ModalLoginButton({simple}) {
   const authContext = useContext(AuthenticationContext);
   const [wait, setWait] = useState(false);
   const [opened, setOpened] = useState(false);
@@ -38,9 +38,14 @@ function ModalLoginButton() {
 
   return (
     <>
-      <Button variant="outline-info" onClick={onOpen}>
-        { authContext.authenticated ? "Log out" : "Log in" }
-      </Button>
+      {
+        simple ? (<span onClick={onOpen}>{authContext.authenticated ? "Log out" : "Log in"}</span>) : (
+          <Button variant="outline-info" onClick={onOpen}>
+            { authContext.authenticated ? "Log out" : "Log in" }
+          </Button>
+        )
+      }
+
       {
         authContext.authenticated ? (
             <ModalConfirm show={opened} onConfirm={doLogout} onDismiss={onHide}>

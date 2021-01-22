@@ -6,7 +6,7 @@ import NoMatch from "../error_page/NoMatch";
 import CoursesPage from "../courses_page/CoursesPage";
 
 class Wrapper extends React.Component {
-
+  
   componentDidMount() {
     window.externalJS.wrapperNavbar();
   }

@@ -1,55 +1,63 @@
 import React from "react";
 import AuthenticationContext from "./AuthenticationContext";
-import api from "../../js/api";
+import authService from "../../services/AuthService"
 
 class Auth extends React.Component {
 
-  state = {
-    authenticated: false,
-    user: {},
-    accessToken: ""
+  constructor(props) {
+    super(props);
+    this.state = this.parseToken(this.props.access) || {
+      authenticated: false,
+      user: {},
+      accessToken: ""
+    }
+  }
+
+  tryLogin = async () => {
+    const access = await authService.tryLogin();
+    if (access) {
+      this.setSession(access);
+      return true;
+    }
+    return false;
   }
 
   initiateLogin = async (data) => {
-    if (data.email && data.password) {
-      try {
-        const response = await api("auth/login", {
-          method: 'post', body: JSON.stringify(data)
-        })
-        if (response.ok) {
-          const json = await response.json();
-          this.setSession(json.access);
-          localStorage.setItem("TOKEN", json.refresh);
-          return {
-            success: true
-          };
-        }
-        return {
-          success: false,
-          status: response.status
-        }
-      } catch (e) {
-        return {
-          success: false,
-          panic: true
-        }
-      }
+    const [access, result] = await authService.initiateLogin(data);
+    if (result.success) {
+      this.setSession(access);
     }
+    return result;
   }
 
   setSession = (access) => {
-    const data = JSON.parse(atob(access.split('.')[1]));
-    const user = {
-      id: data.id,
-      role: data.role,
-      email: data.email
+    const data = this.parseToken(access);
+    if (data) {
+      this.setState(data);
     }
+  }
 
-    this.setState({
-      authenticated: true,
-      accessToken: access,
-      user
-    })
+  parseToken(access) {
+    try {
+      if (access) {
+        const data = JSON.parse(atob(access.split('.')[1]));
+
+        if (data) {
+          return {
+            authenticated: true,
+            accessToken: access,
+            user: {
+              id: data.id,
+              role: data.role,
+              email: data.email
+            }
+          }
+        }
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
   }
 
   logout = () => {
@@ -61,6 +69,7 @@ class Auth extends React.Component {
       ...this.state,
       initiateLogin: this.initiateLogin,
       logout: this.logout,
+      tryLogin: this.tryLogin
     }
 
     return (

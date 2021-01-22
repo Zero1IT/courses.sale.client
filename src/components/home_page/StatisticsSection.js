@@ -17,7 +17,7 @@ function StatisticsSection() {
           <h1 className="text-center p-4">Статистика</h1>
           <p className="text-center mb-5">Мы помогаем совершенствовать твои знания</p>
           <Row className="justify-content-around">
-            {cards.map(item => <StatisticCard {...item} />)}
+            {cards.map((item, i) => <StatisticCard key={i} {...item} />)}
           </Row>
         </Col>
       </Row>

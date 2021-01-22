@@ -9,10 +9,10 @@ function FeaturedSection() {
   return (
     <Container as={"section"} className="pt-5 bg-image-section bg-feature-section">
       <Row className="justify-content-center">
-        {test.map(() => <FeaturedCard />)}
+        {test.map((i) => <FeaturedCard key={i} />)}
       </Row>
       <Row>
-        {test.map(() => <FeaturedCard />)}
+        {test.map((i) => <FeaturedCard key={i} />)}
       </Row>
     </Container>
   )
