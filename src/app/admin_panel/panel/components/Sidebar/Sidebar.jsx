@@ -1,0 +1,103 @@
+/*!
+
+=========================================================
+* Light Bootstrap Dashboard React - v1.3.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+import React, {Component} from "react";
+
+import AdminNavbarLinks from "../Navbars/AdminNavbarLinks.jsx";
+
+import logo from "../../assets/img/reactlogo.png";
+import Link from "../../../../components/Link";
+
+class Sidebar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: window.innerWidth
+    };
+    this.updateDimensionsBind = this.updateDimensions.bind(this)
+  }
+
+  activeRoute(routeName) {
+    let pathname = this.props.location.pathname;
+    if (pathname.endsWith("admin")) {
+      pathname += "/";
+    }
+    return pathname.endsWith(routeName) ? "active nav-item" : "nav-item";
+  }
+
+  updateDimensions() {
+    this.setState({width: window.innerWidth});
+  }
+
+  componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensionsBind);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensionsBind)
+  }
+
+  render() {
+    const sidebarBackground = {
+      backgroundImage: "url(" + this.props.image + ")"
+    };
+
+    return (
+      <div id="sidebar" className="sidebar" data-color={this.props.color} data-image={this.props.image}>
+        {this.props.hasImage ? (
+          <div className="sidebar-background" style={sidebarBackground}/>
+        ) : null}
+        <div className="logo">
+          <Link className="simple-text logo-mini" to="/">
+            <div className="logo-img">
+              <img src={logo} alt="logo_image"/>
+            </div>
+          </Link>
+          <Link to="/admin"
+            className="simple-text logo-normal">
+            Admin panel
+          </Link>
+        </div>
+        <div className="sidebar-wrapper">
+          <ul className="nav flex-column flex-nowrap">
+            {this.state.width <= 991 ? <AdminNavbarLinks/> : null}
+            {this.props.routes.map((prop, key) => {
+              if (!prop.redirect)
+                return (
+                  <li
+                    className={this.activeRoute(prop.layout + prop.path)}
+                    key={key}
+                  >
+                    <Link
+                      to={prop.layout + prop.path}
+                      className="nav-link">
+                      <i className={prop.icon}/>
+                      <p>{prop.name}</p>
+                    </Link>
+                  </li>
+                );
+              return null;
+            })}
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Sidebar;

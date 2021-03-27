@@ -3,13 +3,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/icons/icofont.min.css";
 import "./css/custom.scss";
 import "./js/external.js";
+import "./css/fonts/css/fontawesome.min.css"
+import "./css/fonts/css/all.css"
+import "./css/fonts/css/solid.css"
 
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
-import App from "./site/App";
+import App from "./app/App";
 import {applyMiddleware, createStore, compose} from "redux";
-import rootReducer from "./site/storage/rootReducer";
+import rootReducer from "./app/storage/rootReducer";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 

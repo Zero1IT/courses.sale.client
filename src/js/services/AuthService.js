@@ -1,9 +1,12 @@
 import api from "../api";
+import {acceptOkJsonResponse} from "./responseResults";
 
 class AuthService {
+  url = 'auth'
+
   tryLogin = async () => {
     try {
-      let access = this.getAccessToken();
+      const access = this.getAccessToken();
 
       if (access) {
         return access;
@@ -11,19 +14,19 @@ class AuthService {
         const refresh = this.getRefreshToken();
 
         if (refresh) {
-          const response = await api("auth/refresh", {
-            method: 'post', body: refresh
-          });
+          const response = await api.refreshTokenQuery(`${this.url}/refresh`, refresh);
 
           if (response.ok) {
             return await this.ejectTokens(response);
           }
+        } else {
+          this.clearTokens();
         }
       }
 
-      return null;
+      return null; // TODO: check usage and redirect to home page
     } catch (e) {
-      return null;
+      return null; // TODO: check usage and redirect to error page
     }
   }
 
@@ -33,6 +36,13 @@ class AuthService {
 
   getAccessToken = () => {
     return this.returnIfNotExpired(localStorage.getItem("ACS"));
+  }
+
+  /**
+   * @return {Promise<null|undefined|*>}
+   */
+  getAuthToken = () => {
+    return this.tryLogin();
   }
 
   returnIfNotExpired = token => {
@@ -64,13 +74,20 @@ class AuthService {
     localStorage.removeItem("ACS");
   }
 
-  initiateLogin = async (data) => {
-    if (data.email && data.password) {
+  /**
+   * If method was complete successfully second element contains field `success` with value `true`
+   * first element [0]: fetched data
+   * second element [1]: error object, if code is not 2xx object contains `status` field
+   * if it's client error: returns error object with `panic` field (boolean type, true if error)
+   * in both error cases `success` = false
+   * @param credentials {{email: String, password: String}}
+   * @return {Promise<(any|{success: boolean})[]|{success: boolean, status: number}[]|{success: boolean, panic: boolean}[]>}
+   */
+  initiateLogin = async (credentials) => {
+    if (credentials.email && credentials.password) {
       try {
-        const response = await api("auth/login", {
-          method: 'post', body: JSON.stringify(data)
-        })
-        console.log(this);
+        const response = await api.post(`${this.url}/login`, credentials);
+
         if (response.ok) {
           const access = await this.ejectTokens(response);
           return [access, {
@@ -95,6 +112,13 @@ class AuthService {
     const json = await response.json();
     this.saveTokens(json);
     return json.access;
+  }
+
+  registration = async (credentials) => {
+    const result = await acceptOkJsonResponse(api.post(`${this.url}/registration`, credentials));
+    if (result) {
+      throw result;
+    }
   }
 }
 
