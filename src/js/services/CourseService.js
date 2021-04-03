@@ -8,6 +8,7 @@ import api from "../api";
  */
 class CourseService {
   url = "course"
+  historyUrl = "course/history"
 
   async loadCourses(page) {
     return acceptOkJsonResponse(api.get(`${this.url}/page/${page}`));
@@ -43,11 +44,11 @@ class CourseService {
   }
 
   async ownedCourses(page) {
-    return await acceptOkJsonResponse(api.get(`${this.url}/owned/${page}`));
+    return await acceptOkJsonResponse(api.get(`${this.historyUrl}/owned/${page}`));
   }
   
   async enrolledCourses(page) {
-    return await acceptOkJsonResponse(api.get(`${this.url}/enrolled/${page}`));
+    return await acceptOkJsonResponse(api.get(`${this.historyUrl}/enrolled/${page}`));
   }
 }
 

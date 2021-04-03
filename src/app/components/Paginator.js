@@ -7,12 +7,16 @@ function Paginator({info, onSelect, link, elements = 7, size="lg"}) {
     throw new Error('onSelect and link are undefined');
   }
 
+  if (!info.totalPages || info.totalPages < 2) {
+    return null;
+  }
+
   const totalPages = info.totalPages;
   const currentPage = info.number + 1;
   const pagination = [];
 
   if (totalPages < elements) {
-    for (let i = 1; i <= elements; i++) pagination.push(i);
+    for (let i = 1; i <= totalPages; i++) pagination.push(i);
   } else {
     if (currentPage - 3 <= 0) {
       for (let i = 1; i <= elements; i++) pagination.push(i);

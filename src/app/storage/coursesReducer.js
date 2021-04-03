@@ -1,7 +1,8 @@
 import {actionHandler, ENROLLED_COURSES, LOAD_COURSES, OWNED_COURSES} from "./types";
 
 const init = {
-
+  owned: {content: []},
+  enrolled: {content: []}
 };
 
 const reducerActions = new Map();

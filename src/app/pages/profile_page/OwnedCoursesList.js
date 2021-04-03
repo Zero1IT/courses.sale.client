@@ -1,10 +1,12 @@
 import React from "react";
+import {ListGroup} from "react-bootstrap";
+import CourseListItem from "./CourseListItem";
 
-function OwnedCoursesList() {
-  console.log("there");
+function OwnedCoursesList({items}) {
   return (
-    <>
-    </>
+    <ListGroup>
+      {items.map(it => <CourseListItem item={it} baseUrl="" actionName="Управление курсом" />)}
+    </ListGroup>
   )
 }
 

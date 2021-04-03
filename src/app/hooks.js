@@ -11,3 +11,7 @@ export function useReduxFormError(formName) {
 export function useAuth() {
   return useContext(AuthenticationContext);
 }
+
+export function useCourseStore(selector) {
+  return useSelector(store => selector(store.courses));
+}
