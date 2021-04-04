@@ -4,9 +4,11 @@ import {SubmissionError} from "redux-form";
 import {Container} from "react-bootstrap";
 import CourseService from "../../../js/services/CourseService";
 import CircleLoader from "../../shared/CircleLoader";
+import {useHistory} from "react-router-dom";
 
 function CourseCreationPage() {
   const [creating, setCreating] = useState(false);
+  const history = useHistory();
 
   const submitCreate = useCallback(async (values, _, form) => {
     try {
@@ -15,12 +17,13 @@ function CourseCreationPage() {
       course.startDate = new Date(course.startDate ?? null).toISOString();
       await CourseService.createCourses(course);
       form.destroy();
+      history.replace("/profile");
     } catch (e) {
       throw new SubmissionError(e.response?.fieldMessage || {});
     } finally {
       setCreating(false);
     }
-  }, []);
+  }, [history]);
 
   return (
     <Container>

@@ -1,7 +1,7 @@
-import React, {useCallback} from "react";
+import React from "react";
 import {Button, Form} from "react-bootstrap";
 import {Field, reduxForm} from "redux-form";
-import FormField from "./FormField";
+import {FormField} from "./FormField";
 import validator from "../../js/validations";
 import {useReduxFormError} from "../hooks";
 

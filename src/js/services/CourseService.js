@@ -50,6 +50,10 @@ class CourseService {
   async enrolledCourses(page) {
     return await acceptOkJsonResponse(api.get(`${this.historyUrl}/enrolled/${page}`));
   }
+
+  async suggestTopicName(name) {
+    return await acceptOkJsonResponse(api.get(`topics/suggest/${name}`));
+  }
 }
 
 export default new CourseService();

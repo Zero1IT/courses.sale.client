@@ -1,11 +1,11 @@
-import React, {useMemo, useCallback} from "react";
+import React, {useCallback, useMemo} from "react";
 import {Container, Form, InputGroup} from "react-bootstrap";
 import IconChangeableButton from "../../components/IconChangeableButton";
 
 function CourseFilter() {
   const costIcons = useMemo(() => [
-    <i className="fas fa-equals" />,
     <i className="fas fa-less-than" />,
+    <i className="fas fa-equals" />,
     <i className="fas fa-greater-than" />
   ], []);
   const iconChangedCallback = useCallback(selectedIcon => {

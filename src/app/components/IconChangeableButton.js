@@ -13,7 +13,7 @@ function IconChangeableButton({icons, selectedIconCallback, ...rest}) {
       selectedIconCallback && selectedIconCallback(newState);
       return newState;
     });
-  }, [icons.length, selectedIconCallback]);
+  }, [icons, selectedIconCallback]);
 
   return (
     <Button {...rest} onClick={btnClick}>{icons[clickTimes]}</Button>

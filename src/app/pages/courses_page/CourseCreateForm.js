@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {Button, Form} from "react-bootstrap";
 import {Field, reduxForm} from "redux-form";
 import FieldFileUpload from "../../components/FieldFileUpload";
-import FormField from "../../components/FormField";
+import {FormChips, FormField} from "../../components/FormField";
 import validator from "../../../js/validations";
 import {useReduxFormError} from "../../hooks";
 
@@ -41,8 +41,12 @@ const validate = (values, info) => {
 function CourseCreateForm({handleSubmit}) {
   const errorsPresent = useReduxFormError(formName);
 
+  const onKeyPress = useCallback(e => {
+    if (e.key === 'Enter') e.preventDefault();
+  }, []);
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} onKeyPress={onKeyPress}>
       <Form.Row className="align-items-center">
         <Field component={FormField} className="col-12 col-sm-6 col-md-4"
                name="title" type="text" label="Название" heightType="large" />
@@ -58,6 +62,9 @@ function CourseCreateForm({handleSubmit}) {
           <Form.Label>Изображение для карточки курса</Form.Label>
           <Field component={FieldFileUpload} name="image" />
         </Form.Group>
+      </Form.Row>
+      <Form.Row>
+        <Field component={FormChips} className="col-12" name="topics" label="Теги" maxChips={5} />
       </Form.Row>
       <Form.Row>
         <Field component={FormField} className="col-12" formAs="textarea" typeParams={{rows: 3, draggable: false}}

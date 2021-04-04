@@ -1,5 +1,7 @@
 import {Form} from "react-bootstrap";
-import React from "react";
+import React, {useCallback, useState} from "react";
+import Chips from "react-chips";
+import CourseService from "../../js/services/CourseService";
 
 const minHeightTypes = new Map();
 minHeightTypes.set("small", "55px");
@@ -22,4 +24,35 @@ function FormField(props) {
   )
 }
 
-export default FormField;
+function FormChips(props) {
+  const {input, label, noLabel, heightType, className, flcn, maxChips} = props;
+  const [chips, setChips] = useState(input.value || []);
+
+  const onChange = useCallback(chs => {
+    if (chs.length > maxChips) { // replace last element with new
+      const lastAdded = chs.pop();
+      if (!chs.includes(lastAdded.toLowerCase())) {
+        chs.pop();
+        chs.push(lastAdded);
+      }
+    }
+    chs = [...new Set(chs.map(it => it.toLowerCase()))];
+    setChips(chs);
+    input.onChange(chs);
+  }, [input, maxChips]);
+
+  const suggester = useCallback(async value => CourseService.suggestTopicName(value), []);
+
+  return (
+    <Form.Group className={className} style={heightType && {minHeight: minHeightTypes.get(heightType)}}>
+      {!noLabel && <Form.Label className={flcn}>{label}</Form.Label>}
+      <Chips suggestions={["Your", "Data", "Here"]}  value={chips} onChange={onChange} fetchSuggestionsThrushold={1}
+             createChipKeys={['Enter', 'Tab']} fetchSuggestions={suggester}
+             placeholder={chips.length < maxChips ? `Максимум ${maxChips}. Осталось ${maxChips - chips.length}` : 'Больше нельзя добавить'}/>
+    </Form.Group>
+  )
+}
+
+export {
+  FormField, FormChips
+};

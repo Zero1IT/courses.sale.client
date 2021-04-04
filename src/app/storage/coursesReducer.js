@@ -2,7 +2,8 @@ import {actionHandler, ENROLLED_COURSES, LOAD_COURSES, OWNED_COURSES} from "./ty
 
 const init = {
   owned: {content: []},
-  enrolled: {content: []}
+  enrolled: {content: []},
+  data: null
 };
 
 const reducerActions = new Map();
