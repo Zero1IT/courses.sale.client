@@ -17,7 +17,7 @@ export default class Handler extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Что-то пошло не так.</h1>;
+      return <h1>Что-то пошло не так. Обновите страницу (F5 или кнопка браузера)</h1>;
     }
 
     return this.props.children;

@@ -1,8 +1,9 @@
 import {useAuth} from "../hooks";
 
-function Private({children, aRole}) {
+function Private({children, aRole, permission}) {
   const auth = useAuth();
-  if (aRole === auth.user.role) {
+  const currentPermissions = []; // TODO: loading
+  if (aRole === auth.user.role || currentPermissions.includes(permission)) {
     return children;
   }
   return null;

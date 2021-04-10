@@ -6,7 +6,7 @@ function PrivateRoute({children, ...rest}) {
   let auth = useAuth();
   return (
     <Route {...rest} render={({ location }) => auth.authenticated ? (children)
-             : (<Redirect to={{pathname: "/login",state: { from: location }}} />)
+             : (<Redirect to={{pathname: "/login", state: { from: location }}} />)
     }
     />
   );

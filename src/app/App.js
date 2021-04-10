@@ -6,6 +6,7 @@ import Auth from "./auth/Auth";
 import AuthService from "../js/services/AuthService";
 import CircleLoader from "./shared/CircleLoader";
 import Handler from "./wrapper/Handler";
+import PrivateRoute from "./shared/PrivateRoute";
 
 function App() {
   const [access, setAccess] = useState("");
@@ -21,7 +22,7 @@ function App() {
         <Router>
           <Handler>
             <Switch>
-              <Route path="/admin" children={ <AdminPage/> } />
+              <PrivateRoute path="/admin" children={ <AdminPage/> } />
               <Route path="/" children={ <Wrapper/> } />
             </Switch>
           </Handler>
