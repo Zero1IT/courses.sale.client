@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Container, Row} from "react-bootstrap";
 import UsersTable from "../components/UsersTable/UsersTable";
-import UserService from "../../../../js/services/UserService";
+import UserService from "../../../../js/services/UserControlService";
 
 function UsersControl() {
   const [data, setData] = useState({});

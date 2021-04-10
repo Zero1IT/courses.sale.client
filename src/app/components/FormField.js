@@ -6,7 +6,7 @@ import * as Showdown from "showdown";
 import ReactMde from "react-mde";
 
 const minHeightTypes = new Map();
-minHeightTypes.set("small", "55px");
+minHeightTypes.set("small", "62px");
 minHeightTypes.set("medium", "75px");
 minHeightTypes.set("large", "95px");
 

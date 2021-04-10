@@ -15,3 +15,7 @@ export function useAuth() {
 export function useCourseStore(selector) {
   return useSelector(store => selector(store.courses));
 }
+
+export function useUsersStore(selector) {
+  return useSelector(store => selector(store.users));
+}

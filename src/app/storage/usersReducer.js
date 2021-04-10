@@ -1,8 +1,9 @@
-import {actionHandler, CACHED_ROLES, ROLES_LOADING} from "./types";
+import {actionHandler, CACHED_ROLES, LOAD_PROFILE, ROLES_LOADING} from "./types";
 
 const init = {
   roles: [],
   rolesLoading: false,
+  profile: {},
 }
 
 const reducerActions = new Map();
@@ -16,6 +17,12 @@ reducerActions.set(CACHED_ROLES, (prev, payload) => {
 reducerActions.set(ROLES_LOADING, (prev, payload) => {
   return {
     ...prev, rolesLoading: payload
+  }
+});
+
+reducerActions.set(LOAD_PROFILE, (prev, payload) => {
+  return {
+    ...prev, profile: payload
   }
 });
 

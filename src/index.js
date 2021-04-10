@@ -6,7 +6,7 @@ import "./js/external.js";
 import "./css/fonts/css/fontawesome.min.css"
 import "./css/fonts/css/all.css"
 import "./css/fonts/css/solid.css"
-import "react-mde/lib/styles/css/react-mde-all.css";
+import "react-mde/lib/styles/css/react-mde-all.css"; // TODO: move
 
 import React from "react";
 import ReactDOM from "react-dom";

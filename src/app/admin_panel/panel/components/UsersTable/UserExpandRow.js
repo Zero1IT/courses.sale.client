@@ -3,7 +3,7 @@ import {Accordion, Badge, Container, ListGroup} from "react-bootstrap";
 import Button from "../CustomButton/CustomButton";
 import ModalConfirm from "../../../../shared/ModalConfirm";
 import Selector from "../../../../components/Selector";
-import UserService from "../../../../../js/services/UserService";
+import UserService from "../../../../../js/services/UserControlService";
 import {roleChangingLoader} from "../../../../storage/actions";
 import {useDispatch} from "react-redux";
 

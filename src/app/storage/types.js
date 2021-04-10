@@ -23,3 +23,5 @@ export const CHANGE_ROLE = "change_role";
 export const LOAD_COURSES = "load_courses";
 export const OWNED_COURSES = "owned_courses";
 export const ENROLLED_COURSES = "enrolled_courses";
+
+export const LOAD_PROFILE = "load_profile";

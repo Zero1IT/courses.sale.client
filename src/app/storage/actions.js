@@ -1,6 +1,15 @@
 import RoleService from "../../js/services/RoleService";
-import {CACHED_ROLES, ENROLLED_COURSES, LOAD_COURSES, OWNED_COURSES, ROLE_CHANGING, ROLES_LOADING} from "./types";
+import {
+  CACHED_ROLES,
+  ENROLLED_COURSES,
+  LOAD_COURSES,
+  LOAD_PROFILE,
+  OWNED_COURSES,
+  ROLE_CHANGING,
+  ROLES_LOADING
+} from "./types";
 import CourseService from "../../js/services/CourseService";
+import UserService from "../../js/services/UserService";
 
 /**
  * Role loading process
@@ -78,4 +87,19 @@ export function fetchEnrolledCourses(page = 1) {
     const data = await CourseService.enrolledCourses(page);
     dispatch(loadEnrolledCourses(data));
   }
+}
+
+
+export function loadProfile(user) {
+  return {
+    type: LOAD_PROFILE,
+    payload: user
+  };
+}
+
+export function fetchProfile() {
+  return async dispatch => {
+    const profile = await UserService.loadCurrentProfile();
+    dispatch(loadProfile(profile));
+  };
 }
