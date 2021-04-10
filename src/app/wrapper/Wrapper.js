@@ -7,6 +7,7 @@ import Error404 from "../pages/error_page/404";
 import AuthenticationPage from "../pages/AuthenticationPage";
 import ProfilePage from "../pages/profile_page/ProfilePage";
 import AuthenticationContext from "../auth/AuthenticationContext";
+import PrivateRoute from "../shared/PrivateRoute";
 
 class Wrapper extends React.Component {
   
@@ -25,7 +26,7 @@ class Wrapper extends React.Component {
             <main style={{paddingTop: "80px", marginBottom: "40px"}}>
               <Switch>
                 <Route path="/courses" children={<CoursesRoutes />} />
-                <Route path="/profile" children={<ProfilePage />} />
+                <PrivateRoute path="/profile" children={<ProfilePage />} />
                 {!auth.authenticated && <Route path="/login" children={<AuthenticationPage />} exact />}
                 <Route path="/" children={<HomePage/>} exact />
                 <Route path="*" children={<Error404/>}/>

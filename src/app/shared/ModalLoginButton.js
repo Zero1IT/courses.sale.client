@@ -5,8 +5,11 @@ import CircleLoader from "./CircleLoader";
 import {Button} from "react-bootstrap";
 import ModalConfirm from "./ModalConfirm";
 import {useAuth} from "../hooks";
+import {useDispatch} from "react-redux";
+import {storeLogout} from "../storage/actions";
 
 function ModalLoginButton({simple}) {
+  const dispatch = useDispatch();
   const authContext = useAuth();
   const [wait, setWait] = useState(false);
   const [opened, setOpened] = useState(false);
@@ -33,6 +36,7 @@ function ModalLoginButton({simple}) {
 
   const doLogout = () => {
     authContext.logout();
+    dispatch(storeLogout());
     onHide();
   }
 

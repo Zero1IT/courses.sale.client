@@ -15,6 +15,8 @@ export function actionHandler(map, state, action) {
   return state;
 }
 
+export const LOGOUT = 'LOGOUT';
+
 export const CACHED_ROLES = "cache_roles";
 export const ROLES_LOADING = "roles_loading";
 export const ROLE_CHANGING = "role_changing";

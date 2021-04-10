@@ -3,13 +3,19 @@ import {
   CACHED_ROLES,
   ENROLLED_COURSES,
   LOAD_COURSES,
-  LOAD_PROFILE,
+  LOAD_PROFILE, LOGOUT,
   OWNED_COURSES,
   ROLE_CHANGING,
   ROLES_LOADING
 } from "./types";
 import CourseService from "../../js/services/CourseService";
 import UserService from "../../js/services/UserService";
+
+export function storeLogout() {
+  return {
+    type: LOGOUT
+  }
+}
 
 /**
  * Role loading process

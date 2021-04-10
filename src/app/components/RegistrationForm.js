@@ -34,7 +34,7 @@ function RegistrationForm({className, handleSubmit}) {
 
   return (
     <Form onSubmit={handleSubmit} className={className}>
-      {fieldData.map(info => <Field component={FormField} name={info[0]} type={info[1]}
+      {fieldData.map((info, i) => <Field key={i} component={FormField} name={info[0]} type={info[1]}
                                     label={info[2]} className={"mb-0"} heightType={"medium"} noLabel/>)
       }
       <Button type="submit" className={errorsPresent && "disabled"}>Зарегистрироваться</Button>
