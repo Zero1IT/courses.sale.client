@@ -5,10 +5,12 @@ import CourseService from "../../../js/services/CourseService";
 import {Badge, Col, Container, Image, Row} from "react-bootstrap";
 import {url} from "../../../js/services/responseResults";
 import Link from "../../components/Link";
+import {converter} from "../../components/FormField";
 
 function CoursePage() {
   const {id} = useParams();
 
+  // TODO: duplicate query bug
   if (id && id > 0) {
     return (
       <Query promise={CourseService.getById(id)}>
@@ -27,8 +29,10 @@ function CoursePage() {
                 </div>
                 <div className="wrap-line" />
                 <div>
-                  <h5 className="text-center">Описание</h5>
-                  <p>{course.description || 'Описание отсутствует'}</p>
+                  <h2   className="text-center">Описание</h2>
+                  <div dangerouslySetInnerHTML={{
+                    __html: course.description ? converter.makeHtml(course.description) : 'Описание отсутствует'
+                  }} />
                 </div>
                 <Link to={"/courses/enroll/" + course.id} className={"btn btn-primary"}>Записаться на курс</Link>
               </Col>

@@ -11,9 +11,9 @@ const validate = (values, info) => {
   const errors = {};
   if (!info.submitting) {
     if (!validator.isValidPassword(values.password)) {
-      errors.password = errors.repeatedPassword = 'Пароль слишком лёгкий';
-    } else if (values.password !== values.repeatedPassword) {
-      errors.repeatedPassword = 'Пароли не совпадают';
+      errors.password = errors.confirmedPassword = 'Пароль слишком лёгкий';
+    } else if (values.password !== values.confirmedPassword) {
+      errors.confirmedPassword = 'Пароли не совпадают';
     }
     if (!validator.isValidEmail(values.email)) {
       errors.email = 'Некорректный адрес почты';
@@ -39,7 +39,7 @@ function RegistrationForm({className, handleSubmit}) {
     ["email", "email", "Электронная почта"],
     ["phone", "text", "Номер телефона"],
     ["password", "password", "Пароль"],
-    ["repeatedPassword", "password", "Подтвердите пароль"]
+    ["confirmedPassword", "password", "Подтвердите пароль"]
   ];
 
   return (

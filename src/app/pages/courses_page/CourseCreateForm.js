@@ -1,8 +1,8 @@
-import React, {useCallback} from "react";
+import React from "react";
 import {Button, Form} from "react-bootstrap";
 import {Field, reduxForm} from "redux-form";
 import FieldFileUpload from "../../components/FieldFileUpload";
-import {FormChips, FormField} from "../../components/FormField";
+import {FormChips, FormField, MDRedactor} from "../../components/FormField";
 import validator from "../../../js/validations";
 import {useReduxFormError} from "../../hooks";
 
@@ -41,12 +41,8 @@ const validate = (values, info) => {
 function CourseCreateForm({handleSubmit}) {
   const errorsPresent = useReduxFormError(formName);
 
-  const onKeyPress = useCallback(e => {
-    if (e.key === 'Enter') e.preventDefault();
-  }, []);
-
   return (
-    <Form onSubmit={handleSubmit} onKeyPress={onKeyPress}>
+    <Form onSubmit={handleSubmit}>
       <Form.Row className="align-items-center">
         <Field component={FormField} className="col-12 col-sm-6 col-md-4"
                name="title" type="text" label="Название" heightType="large" />
@@ -67,16 +63,18 @@ function CourseCreateForm({handleSubmit}) {
         <Field component={FormChips} className="col-12" name="topics" label="Теги" maxChips={5} />
       </Form.Row>
       <Form.Row>
-        <Field component={FormField} className="col-12" formAs="textarea" typeParams={{rows: 3, draggable: false}}
-               name="description" label="Описание" />
+        <Field component={MDRedactor} className="col-12" name="description" label="Описание" />
       </Form.Row>
       <Button type="submit" className={errorsPresent && "disabled"}>Создать</Button>
     </Form>
   )
 }
-
+// TODO: enter key submits form
 export default reduxForm({
   form: formName,
   destroyOnUnmount: false,
   validate,
+  initialValues: {
+    description: "**Здесь описание**"
+  }
 })(CourseCreateForm);

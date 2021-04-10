@@ -22,7 +22,7 @@ class Wrapper extends React.Component {
             <header>
               <FixedNavbar />
             </header>
-            <main style={{paddingTop: "80px"}}>
+            <main style={{paddingTop: "80px", marginBottom: "40px"}}>
               <Switch>
                 <Route path="/courses" children={<CoursesRoutes />} />
                 <Route path="/profile" children={<ProfilePage />} />
