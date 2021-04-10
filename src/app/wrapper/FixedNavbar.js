@@ -3,6 +3,8 @@ import Link from "../components/Link";
 import ModalLoginButton from "../shared/ModalLoginButton";
 import {Nav, Navbar} from "react-bootstrap";
 import {useAuth} from "../hooks";
+import Private from "../shared/Private";
+import {Roles} from "../../js/Roles";
 
 function FixedNavbar() {
   const auth = useAuth();
@@ -18,7 +20,9 @@ function FixedNavbar() {
         <Nav>
           <Nav.Link as={Link} to="/" href="/">Главная<span className="sr-only">(current)</span></Nav.Link>
           {/* TODO: directly link for reset SPA styles (maybe find another solutions) */}
-          <Nav.Link href="/admin">Администрация</Nav.Link>
+          <Private aRole={Roles.ADMIN}>
+            <Nav.Link href="/admin">Администрация</Nav.Link>
+          </Private>
           <Nav.Link as={Link} to="/courses/list" href="/courses/list">Курсы</Nav.Link>
         </Nav>
         <Nav className="ml-auto">

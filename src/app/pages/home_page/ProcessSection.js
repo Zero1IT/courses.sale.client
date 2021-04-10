@@ -7,7 +7,7 @@ function ProcessSection() {
   const processes = [
     [<i className="icon-2 icofont-search-2"> </i>, "Найди интересующий курс в списке доступных курсов"],
     [<i className="icon-2 icofont-read-book"> </i>, "Прочти информацию о курсе, которая предоставляется лектором"],
-    [<i className="icon-2 icofont-meeting-add"> </i>, "Запишись на курс, в заданную дату"],
+    [<i className="icon-2 icofont-meeting-add"> </i>, "Запишись на курс, до даты начала"],
     [<i className="icon-2 icofont-brainstorming"> </i>, "Отслеживай информацию о курсе в личном кабинете"],
   ];
 
