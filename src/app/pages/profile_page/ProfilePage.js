@@ -4,7 +4,7 @@ import ProfileCoursesInfo from "./ProfileCoursesInfo";
 import "../../../css/profile.css";
 import {useDispatch} from "react-redux";
 import {useUsersStore} from "../../hooks";
-import {fetchProfile} from "../../storage/actions";
+import {fetchProfile} from "../../storage/async-actions";
 import {Facebook, GitHub, Instagram, Twitter, Website} from "../../components/SvgIcons";
 import {Field, reduxForm} from "redux-form";
 import {FormField} from "../../components/FormField";

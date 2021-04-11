@@ -2,22 +2,23 @@ import React, {useEffect, useMemo} from "react";
 import cx from "classnames";
 import {Button} from "react-bootstrap";
 
-function CircleLoaderSuccess({active, success, onReset, duration= 1000, asButton, ...rest}) {
+function CircleLoaderSuccess({active, success, fail, onReset, duration= 1000, asButton, ...rest}) {
 
   useEffect(() => {
-    if (active && success && onReset) {
+    if (active && onReset && (success || fail)) {
       const timer = setTimeout(onReset, duration);
       return () => {
         if (timer) clearTimeout(timer);
       };
     }
-  }, [active, success, onReset, duration]);
+  }, [active, success, fail, onReset, duration]);
 
   const classes = useMemo(() => cx({
     "cls-btn": asButton,
     "cls-active": active,
-    "cls-success": success
-  }), [active, success, asButton]);
+    "cls-success": success,
+    "cls-failure": fail,
+  }), [active, success, fail, asButton]);
 
   if (asButton) {
     return <Button className={classes} {...rest}>{asButton}</Button>

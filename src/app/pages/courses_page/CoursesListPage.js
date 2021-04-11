@@ -7,7 +7,7 @@ import Paginator from "../../components/Paginator";
 import {useParams} from "react-router-dom";
 import StorageQueryWaiting from "../../components/StorageQueryWaiting";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCourses} from "../../storage/actions";
+import {fetchCourses} from "../../storage/async-actions";
 
 function CoursesListPage() {
   const {page=1} = useParams();

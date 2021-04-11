@@ -18,6 +18,7 @@
 import React, { Component } from "react";
 
 class CustomCheckbox extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -25,13 +26,17 @@ class CustomCheckbox extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick() {
-    this.setState({ is_checked: !this.state.is_checked });
+    const v = !this.state.is_checked;
+    this.setState({ is_checked: v });
+    this.props.onChange(v);
   }
+
   render() {
-    const { isChecked, number, label, inline, ...rest } = this.props;
-    const classes =
-      inline !== undefined ? "checkbox checkbox-inline" : "checkbox";
+    const { isChecked, number, label, inline, onChange, ...rest } = this.props;
+    const classes = inline !== undefined ? "checkbox checkbox-inline" : "checkbox";
+
     return (
       <div className={classes}>
         <input

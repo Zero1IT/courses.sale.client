@@ -21,6 +21,8 @@ export const CACHED_ROLES = "cache_roles";
 export const ROLES_LOADING = "roles_loading";
 export const ROLE_CHANGING = "role_changing";
 export const CHANGE_ROLE = "change_role";
+export const CACHE_PERMISSIONS = "cache_permissions";
+export const PERMISSIONS_LOADING = "permissions_loading";
 
 export const LOAD_COURSES = "load_courses";
 export const OWNED_COURSES = "owned_courses";

@@ -3,7 +3,7 @@ import {Container, Tab, Tabs} from "react-bootstrap";
 import OwnedCoursesList from "./OwnedCoursesList";
 import EnrolledCoursesList from "./EnrolledCoursesList";
 import {useDispatch} from "react-redux";
-import {fetchEnrolledCourses, fetchOwnedCourses} from "../../storage/actions";
+import {fetchEnrolledCourses, fetchOwnedCourses} from "../../storage/async-actions";
 import {useCourseStore} from "../../hooks";
 import Paginator from "../../components/Paginator";
 

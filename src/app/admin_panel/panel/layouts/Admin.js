@@ -111,7 +111,9 @@ class Admin extends Component {
         hasImage={this.state.hasImage}/>
         <div id="main-panel" className="main-panel" ref={this.mainPanelRef}>
           <Header{...this.props} brandText={this.getBrandText()} />
-          <Switch>{this.getRoutes(routes)}</Switch>
+          <div style={{minHeight: "80vh"}}>
+            <Switch>{this.getRoutes(routes)}</Switch>
+          </div>
           <Footer />
           <FixedPlugin
             handleImageClick={this.handleImageClick}

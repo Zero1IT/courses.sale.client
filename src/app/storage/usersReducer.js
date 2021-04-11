@@ -1,9 +1,18 @@
-import {actionHandler, CACHED_ROLES, LOAD_PROFILE, ROLES_LOADING} from "./types";
+import {
+  actionHandler,
+  CACHE_PERMISSIONS,
+  CACHED_ROLES,
+  LOAD_PROFILE,
+  PERMISSIONS_LOADING,
+  ROLES_LOADING
+} from "./types";
 
 const init = {
-  roles: [],
-  rolesLoading: false,
-  profile: {},
+  roles: [], // all app roles
+  rolesLoading: false, // roles loading indicator
+  permissions: [], // all app perms
+  permissionsLoading: false,
+  profile: {}, // current user
 }
 
 const reducerActions = new Map();
@@ -23,6 +32,18 @@ reducerActions.set(ROLES_LOADING, (prev, payload) => {
 reducerActions.set(LOAD_PROFILE, (prev, payload) => {
   return {
     ...prev, profile: payload
+  }
+});
+
+reducerActions.set(CACHE_PERMISSIONS, (prev, payload) => {
+  return {
+    ...prev, permissions: payload ? payload.map(it => it.name) : []
+  }
+});
+
+reducerActions.set(PERMISSIONS_LOADING, (prev, payload) => {
+  return {
+    ...prev, permissionsLoading: payload
   }
 });
 

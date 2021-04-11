@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import DataTable from "react-data-table-component"
 import UserExpandRow from "./UserExpandRow";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchRoles} from "../../../../storage/actions";
+import {fetchRoles} from "../../../../storage/async-actions";
 import {CircleLoader} from "../../../../components/Loaders";
 
 const columns = [

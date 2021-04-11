@@ -14,6 +14,22 @@ class RoleService {
   async loadRoles() {
     return acceptOkJsonResponse(api.get(this.url));
   }
+
+  async loadPermissions() {
+    return acceptOkJsonResponse(api.get(`${this.url}/perms`))
+  }
+
+  async createNewRole(role) {
+    return acceptOkJsonResponse(api.post(this.url, role));
+  }
+
+  async updateRole(role) {
+    return acceptOkJsonResponse(api.put(this.url, role));
+  }
+
+  async deleteRole(name) {
+    return acceptOkJsonResponse(api.delete(`${this.url}/${name}`));
+  }
 }
 
 export default new RoleService();

@@ -51,6 +51,10 @@
     content: "\f14a";
 }
 
+.checkbox input[type="checkbox"] + label::before {
+  content: "\f0c8";
+}
+
 .checkbox input[type="checkbox"]:checked + label::after{
     color: $info-color;
 }

@@ -310,18 +310,32 @@ button.btn-blw:hover {
   animation: cls-rotate 1.4s ease 0.5s infinite;
 }
 
-.cls-success {
+.cls-success, .cls-failure {
   position: relative;
   background: #000;
   animation: cls-bounce .3s ease-in;
 }
 
+// duplicate because of react-app bug
 .cls-success:before {
   content: '';
   position: absolute;
   background: url(check-solid.svg) no-repeat;
   left: 0;
   right: 0;
+  margin: 0 auto;
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+  top: 8px;
+}
+
+.cls-failure:before {
+  content: '';
+  position: absolute;
+  background: url(times-solid.svg) no-repeat;
+  right: 0;
+  left: 9px;
   margin: 0 auto;
   width: 31px;
   height: 31px;

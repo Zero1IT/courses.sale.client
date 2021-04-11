@@ -37,7 +37,7 @@ const api = {
    * @return {Promise<Response>}
    */
   put(path, body, params = null, init= null) {
-    return this.withAuth(apiPath + path, 'put', init, params)
+    return this.withAuth(apiPath + path, 'put', init, params, body)
   },
 
   /**

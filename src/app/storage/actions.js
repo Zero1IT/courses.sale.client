@@ -1,20 +1,22 @@
-import RoleService from "../../js/services/RoleService";
 import {
+  CACHE_PERMISSIONS,
   CACHED_ROLES,
   ENROLLED_COURSES,
   LOAD_COURSES,
-  LOAD_PROFILE, LOGOUT,
+  LOAD_PROFILE,
+  LOGOUT,
   OWNED_COURSES,
+  PERMISSIONS_LOADING,
   ROLE_CHANGING,
   ROLES_LOADING
 } from "./types";
-import CourseService from "../../js/services/CourseService";
-import UserService from "../../js/services/UserService";
+
+function action(type, payload = null) {
+  return {type, payload};
+}
 
 export function storeLogout() {
-  return {
-    type: LOGOUT
-  }
+  return action(LOGOUT);
 }
 
 /**
@@ -23,89 +25,37 @@ export function storeLogout() {
  * @return {{payload: *, type: string}}
  */
 export function rolesLoading(loading) {
-  return {
-    type: ROLES_LOADING,
-    payload: loading
-  }
+  return action(ROLES_LOADING, loading);
 }
 
 export function roleChangingLoader(changing) {
-  return {
-    type: ROLE_CHANGING,
-    payload: changing
-  }
+  return action(ROLE_CHANGING, changing);
 }
 
 export function saveRoles(roles) {
-  return {
-    type: CACHED_ROLES,
-    payload: roles
-  }
+  return action(CACHED_ROLES, roles);
 }
 
-export function fetchRoles() {
-  return async (dispatch, getState) => {
-    const {users} = getState();
-    if (!users.roles || !users.roles.length || users.roles.length === 0) {
-      const result = await RoleService.loadRoles();
-      dispatch(saveRoles(result));
-    }
-  }
+export function permissionsLoading(value) {
+  return action(PERMISSIONS_LOADING, value);
+}
+
+export function savePermissions(permissions) {
+  return action(CACHE_PERMISSIONS, permissions);
 }
 
 export function loadCourses(data) {
-  return {
-    type: LOAD_COURSES,
-    payload: data
-  }
-}
-
-export function fetchCourses(page) {
-  return async dispatch => {
-    const data = await CourseService.loadCourses(page);
-    dispatch(loadCourses(data));
-  };
+  return action(LOAD_COURSES, data);
 }
 
 export function loadOwnedCourses(data) {
-  return {
-    type: OWNED_COURSES,
-    payload: data
-  }
-}
-
-export function fetchOwnedCourses(page = 1) {
-  return async dispatch => {
-    const data = await CourseService.ownedCourses(page);
-    dispatch(loadOwnedCourses(data));
-  }
+  return action(OWNED_COURSES, data);
 }
 
 export function loadEnrolledCourses(data) {
-  return {
-    type: ENROLLED_COURSES,
-    payload: data
-  }
+  return action(ENROLLED_COURSES, data);
 }
-
-export function fetchEnrolledCourses(page = 1) {
-  return async dispatch => {
-    const data = await CourseService.enrolledCourses(page);
-    dispatch(loadEnrolledCourses(data));
-  }
-}
-
 
 export function loadProfile(user) {
-  return {
-    type: LOAD_PROFILE,
-    payload: user
-  };
-}
-
-export function fetchProfile() {
-  return async dispatch => {
-    const profile = await UserService.loadCurrentProfile();
-    dispatch(loadProfile(profile));
-  };
+  return action(LOAD_PROFILE, user);
 }
