@@ -2,23 +2,33 @@ import React, {useEffect, useMemo} from "react";
 import cx from "classnames";
 import {Button} from "react-bootstrap";
 
-function CircleLoaderSuccess({active, success, fail, onReset, duration= 1000, asButton, ...rest}) {
+/**
+ *
+ * @param stateArray - [0]: indicate active, [1]: indicate success result, [2]: indicate failure result
+ * @param onReset - for reset state array after duration
+ * @param duration - wait until showing result
+ * @param asButton - view like btn
+ * @param rest - any props
+ * @return {JSX.Element}
+ * @constructor
+ */
+function CircleLoaderSuccess({stateArray, onReset, duration= 1000, asButton, ...rest}) {
 
   useEffect(() => {
-    if (active && onReset && (success || fail)) {
+    if (stateArray[0] && onReset && (stateArray[1] || stateArray[2])) {
       const timer = setTimeout(onReset, duration);
       return () => {
         if (timer) clearTimeout(timer);
       };
     }
-  }, [active, success, fail, onReset, duration]);
+  }, [stateArray, onReset, duration]);
 
   const classes = useMemo(() => cx({
     "cls-btn": asButton,
-    "cls-active": active,
-    "cls-success": success,
-    "cls-failure": fail,
-  }), [active, success, fail, asButton]);
+    "cls-active": stateArray[0],
+    "cls-success": stateArray[1],
+    "cls-failure": stateArray[2],
+  }), [stateArray, asButton]);
 
   if (asButton) {
     return <Button className={classes} {...rest}>{asButton}</Button>

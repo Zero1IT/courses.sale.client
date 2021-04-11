@@ -19,3 +19,7 @@ export function useCourseStore(selector) {
 export function useUsersStore(selector) {
   return useSelector(store => selector(store.users));
 }
+
+export function useCoursesStore(selector) {
+  return useSelector(store => selector(store.courses));
+}

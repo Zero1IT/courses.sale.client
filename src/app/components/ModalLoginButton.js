@@ -52,9 +52,7 @@ function ModalLoginButton({simple}) {
 
       {
         authContext.authenticated ? (
-            <ModalConfirm show={opened} onConfirm={doLogout} onDismiss={onHide}>
-              Выход из аккаунта
-            </ModalConfirm>
+            <ModalConfirm show={opened} onConfirm={doLogout} onDismiss={onHide} head="Выход из аккаунта" />
           ) : (
           <ModalWindow show={opened} onHide={onHide} id={"doby"} title={"Login form"} message={message}>
             { wait ? <CircleLoader small noBg /> : <LoginForm onSubmit={doAuthentication}/> }

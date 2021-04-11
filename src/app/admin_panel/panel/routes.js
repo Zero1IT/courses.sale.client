@@ -17,12 +17,12 @@
 */
 import Dashboard from "./views/Dashboard.jsx";
 import UserProfile from "./views/UserProfile.jsx";
-import Typography from "./views/Typography.jsx";
 import Icons from "./views/Icons.jsx";
 import Notifications from "./views/Notifications.jsx";
 import Main from "./views/Main";
 import UsersControl from "./views/UsersControl";
 import RolesBoard from "./views/RolesBoard";
+import TopicsBoard from "./views/TopicsBoard";
 
 const dashboardRoutes = [
   {
@@ -64,10 +64,10 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/typography",
-    name: "Typography",
+    path: "/topics",
+    name: "Topics",
     icon: "pe-7s-news-paper",
-    component: Typography,
+    component: TopicsBoard,
     layout: "/admin"
   },
   {

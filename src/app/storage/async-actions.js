@@ -2,14 +2,18 @@ import RoleService from "../../js/services/RoleService";
 import CourseService from "../../js/services/CourseService";
 import UserService from "../../js/services/UserService";
 import {
+  loadApprovedTopics,
   loadCourses,
-  loadEnrolledCourses,
-  loadOwnedCourses, loadProfile,
+  loadEnrolledCourses, loadNotApprovedTopics,
+  loadOwnedCourses, loadProfile, loadSkippedTopics,
   permissionsLoading,
   rolesLoading,
   savePermissions,
   saveRoles
 } from "./actions";
+
+
+/* users */
 
 export function fetchRoles() {
   return async (dispatch, getState) => {
@@ -35,6 +39,16 @@ export function fetchPermissions() {
   }
 }
 
+export function fetchProfile() {
+  return async dispatch => {
+    const profile = await UserService.loadCurrentProfile();
+    dispatch(loadProfile(profile));
+  };
+}
+
+
+/* courses */
+
 export function fetchCourses(page) {
   return async dispatch => {
     const data = await CourseService.loadCourses(page);
@@ -56,9 +70,24 @@ export function fetchEnrolledCourses(page = 1) {
   }
 }
 
-export function fetchProfile() {
+export function fetchNotApprovedTopics(page) {
   return async dispatch => {
-    const profile = await UserService.loadCurrentProfile();
-    dispatch(loadProfile(profile));
-  };
+    const topics = await CourseService.loadNotApprovedTopics(page);
+    dispatch(loadNotApprovedTopics(topics));
+  }
+}
+
+export function fetchSkippedTopics(page) {
+  return async dispatch => {
+    const topics = await CourseService.loadSkippedTopics(page);
+    console.log(topics);
+    dispatch(loadSkippedTopics(topics));
+  }
+}
+
+export function fetchApprovedTopics(page) {
+  return async dispatch => {
+    const topics = await CourseService.loadApprovedTopics(page);
+    dispatch(loadApprovedTopics(topics));
+  }
 }

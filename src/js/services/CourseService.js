@@ -9,6 +9,7 @@ import api from "../api";
 class CourseService {
   url = "course"
   historyUrl = "course/history"
+  topics = "topics"
 
   async loadCourses(page) {
     return acceptOkJsonResponse(api.get(`${this.url}/page/${page}`));
@@ -52,7 +53,33 @@ class CourseService {
   }
 
   async suggestTopicName(name) {
-    return await acceptOkJsonResponse(api.get(`topics/suggest/${name}`));
+    return await acceptOkJsonResponse(api.get(`${this.topics}/suggest/${name}`));
+  }
+
+  async loadNotApprovedTopics(page) {
+    return await acceptOkJsonResponse(api.get(`${this.topics}/new/${page}`));
+  }
+
+  async loadApprovedTopics(page) {
+    return await acceptOkJsonResponse(api.get(`${this.topics}/approved/${page}`));
+  }
+
+  async loadSkippedTopics(page) {
+    return await acceptOkJsonResponse(api.get(`${this.topics}/skipped/${page}`));
+  }
+
+  async createTopic(topic) {
+    return await acceptOkJsonResponse(api.post(this.topics, topic));
+  }
+
+  async updateTopic(topic) {
+    return await acceptOkJsonResponse(api.put(this.topics, topic));
+  }
+
+  async deleteTopic(id) {
+    if (id) {
+      return await acceptOkJsonResponse(api.delete(`${this.topics}/${id}`));
+    }
   }
 }
 

@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import validator from "../../js/validations";
-import {CircleLoaderSuccess} from "./Loaders";
 
 function LoginForm({onSubmit}) {
   const [email, setEmail] = useState({value: "", valid: null});
@@ -58,7 +57,6 @@ function LoginForm({onSubmit}) {
                 className={"btn btn-outline-success ml-auto" + ((email.valid && password.valid ? '' : ' disabled'))}>
           Submit form
         </button>
-        <CircleLoaderSuccess />
       </div>
     </form>
   )

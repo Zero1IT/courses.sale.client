@@ -66,9 +66,8 @@ function UserExpandRow({data, roles}) {
                     </ListGroup.Item>
                     )}
                     <ListGroup.Item><Button variant="danger" onClick={onChangeRole}>Изменить права</Button></ListGroup.Item>
-                    <ModalConfirm onDismiss={dismissChangeRole} onConfirm={changeRole} show={roleDialogVisible}
-                                  body={<Selector selected={selectedRole} onSelect={onSelectRole} data={roles} initial={data.role.name} />}>
-                      Выберите роль
+                    <ModalConfirm onDismiss={dismissChangeRole} onConfirm={changeRole} show={roleDialogVisible} head="Выберите роль">
+                      <Selector selected={selectedRole} onSelect={onSelectRole} data={roles} initial={data.role.name} />
                     </ModalConfirm>
                   </ListGroup>
                 </Accordion.Collapse>

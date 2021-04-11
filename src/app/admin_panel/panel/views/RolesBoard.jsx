@@ -78,7 +78,7 @@ function RolesBoard() {
         <Col md={8} sm={11}>
           <Card>
             {loading[0] ? <Row className="justify-content-center p-5">
-              <CircleLoaderSuccess active={loading[0]} success={loading[1]} onReset={resetLoading} fail={loading[2]} />
+              <CircleLoaderSuccess onReset={resetLoading} stateArray={loading} />
             </Row> :
             <RolePermissionPanel roles={roles} permissions={permissions} hash={hash}
                                  onCreate={onCreateRole} onUpdate={onUpdateRole} />}

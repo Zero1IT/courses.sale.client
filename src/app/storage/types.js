@@ -28,4 +28,8 @@ export const LOAD_COURSES = "load_courses";
 export const OWNED_COURSES = "owned_courses";
 export const ENROLLED_COURSES = "enrolled_courses";
 
+export const LOAD_NOT_APPROVED_TOPICS = "load_not_approved_topics";
+export const LOAD_APPROVED_TOPICS = "load_approved_topics";
+export const LOAD_SKIPPED_TOPICS = "load_skipped_topics";
+
 export const LOAD_PROFILE = "load_profile";
