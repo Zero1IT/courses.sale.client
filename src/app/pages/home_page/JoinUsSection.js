@@ -1,7 +1,7 @@
 import React from "react";
 import EmailField from "../../components/EmailField";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import DefaultRegistrationHandler from "../../shared/DefaultRegistrationHandler";
+import DefaultRegistrationHandler from "../../components/DefaultRegistrationHandler";
 
 function JoinUsSection() {
   return (

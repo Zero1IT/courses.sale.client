@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ModalWindow from "./ModalWindow";
-import LoginForm from "../components/LoginForm";
-import CircleLoader from "./CircleLoader";
+import LoginForm from "./LoginForm";
+import {CircleLoader} from "./Loaders";
 import {Button} from "react-bootstrap";
 import ModalConfirm from "./ModalConfirm";
 import {useAuth} from "../hooks";

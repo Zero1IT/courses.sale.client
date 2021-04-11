@@ -3,8 +3,8 @@ import CourseCreateForm from "./CourseCreateForm";
 import {SubmissionError} from "redux-form";
 import {Container} from "react-bootstrap";
 import CourseService from "../../../js/services/CourseService";
-import CircleLoader from "../../shared/CircleLoader";
 import {useHistory} from "react-router-dom";
+import {CircleLoader} from "../../components/Loaders";
 
 function CourseCreationPage() {
   const [creating, setCreating] = useState(false);

@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from "react";
 import {Container, Row} from "react-bootstrap";
-import DefaultRegistrationHandler from "../shared/DefaultRegistrationHandler";
-import ModalWindow from "../shared/ModalWindow";
+import DefaultRegistrationHandler from "../components/DefaultRegistrationHandler";
+import ModalWindow from "../components/ModalWindow";
 import {useLocation} from "react-router-dom";
 
 function AuthenticationPage() {

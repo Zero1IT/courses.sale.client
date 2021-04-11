@@ -1,5 +1,5 @@
 import React, {useCallback} from "react";
-import RegistrationForm from "../components/RegistrationForm";
+import RegistrationForm from "./RegistrationForm";
 import {SubmissionError} from "redux-form";
 import AuthService from "../../js/services/AuthService";
 import {useHistory} from "react-router-dom";

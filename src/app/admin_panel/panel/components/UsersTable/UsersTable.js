@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import DataTable from "react-data-table-component"
-import CircleLoader from "../../../../shared/CircleLoader";
 import UserExpandRow from "./UserExpandRow";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchRoles} from "../../../../storage/actions";
+import {CircleLoader} from "../../../../components/Loaders";
 
 const columns = [
   {

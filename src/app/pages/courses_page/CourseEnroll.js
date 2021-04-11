@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Container, Row} from "react-bootstrap";
 import {useHistory, useParams} from "react-router-dom";
 import CourseService from "../../../js/services/CourseService";
-import Query from "../../shared/Query";
+import Query from "../../components/Query";
 
 function CourseEnroll() {
   const {id} = useParams();

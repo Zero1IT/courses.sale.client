@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "../components/Link";
-import ModalLoginButton from "../shared/ModalLoginButton";
+import ModalLoginButton from "../components/ModalLoginButton";
 import {Nav, Navbar} from "react-bootstrap";
 import {useAuth} from "../hooks";
-import Private from "../shared/Private";
+import Private from "../components/Private";
 import {Roles} from "../../js/Roles";
 
 function FixedNavbar() {

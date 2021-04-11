@@ -1,6 +1,6 @@
 import React from "react";
-import CircleLoader from "./CircleLoader";
-import ErrorViewer from "../components/ErrorViewer";
+import {CircleLoader} from "./Loaders";
+import ErrorViewer from "./ErrorViewer";
 
 function StorageQueryWaiting({data, children}) {
   if (!data) {

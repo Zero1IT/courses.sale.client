@@ -4,9 +4,9 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import AdminPage from "./admin_panel/AdminPage";
 import Auth from "./auth/Auth";
 import AuthService from "../js/services/AuthService";
-import CircleLoader from "./shared/CircleLoader";
+import {CircleLoader} from "./components/Loaders";
 import Handler from "./wrapper/Handler";
-import PrivateRoute from "./shared/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const [access, setAccess] = useState("");

@@ -5,7 +5,7 @@ import CourseFilter from "./CourseFilter";
 import Link from "../../components/Link";
 import Paginator from "../../components/Paginator";
 import {useParams} from "react-router-dom";
-import StorageQueryWaiting from "../../shared/StorageQueryWaiting";
+import StorageQueryWaiting from "../../components/StorageQueryWaiting";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCourses} from "../../storage/actions";
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Container, Nav, NavDropdown} from "react-bootstrap";
-import ModalLoginButton from "../../../../shared/ModalLoginButton";
+import ModalLoginButton from "../../../../components/ModalLoginButton";
 
 class AdminNavbarLinks extends Component {
   render() {

@@ -22,6 +22,7 @@ import Icons from "./views/Icons.jsx";
 import Notifications from "./views/Notifications.jsx";
 import Main from "./views/Main";
 import UsersControl from "./views/UsersControl";
+import RolesBoard from "./views/RolesBoard";
 
 const dashboardRoutes = [
   {
@@ -56,10 +57,10 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/table",
-    name: "Table List",
+    path: "/roles",
+    name: "Roles panel",
     icon: "pe-7s-note2",
-    component: null,
+    component: RolesBoard,
     layout: "/admin"
   },
   {

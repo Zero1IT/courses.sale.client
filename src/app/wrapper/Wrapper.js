@@ -7,7 +7,7 @@ import Error404 from "../pages/error_page/404";
 import AuthenticationPage from "../pages/AuthenticationPage";
 import ProfilePage from "../pages/profile_page/ProfilePage";
 import AuthenticationContext from "../auth/AuthenticationContext";
-import PrivateRoute from "../shared/PrivateRoute";
+import PrivateRoute from "../components/PrivateRoute";
 
 class Wrapper extends React.Component {
   

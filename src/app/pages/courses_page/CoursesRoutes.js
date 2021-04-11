@@ -4,7 +4,7 @@ import CourseCreationPage from "./CourseCreationPage";
 import CoursesListPage from "./CoursesListPage";
 import CoursePage from "./CoursePage";
 import CourseEnroll from "./CourseEnroll";
-import PrivateRoute from "../../shared/PrivateRoute";
+import PrivateRoute from "../../components/PrivateRoute";
 import Error404 from "../error_page/404";
 import CourseControlPanel from "./CourseControlPanel";
 

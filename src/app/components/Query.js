@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import CircleLoader from "./CircleLoader";
-import ErrorViewer from "../components/ErrorViewer";
+import {CircleLoader} from "./Loaders";
+import ErrorViewer from "./ErrorViewer";
 
 /**
  * @param promise {Promise}

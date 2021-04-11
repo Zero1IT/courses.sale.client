@@ -1,6 +1,6 @@
 import React from "react";
 import {Redirect, useParams} from "react-router-dom";
-import Query from "../../shared/Query";
+import Query from "../../components/Query";
 import CourseService from "../../../js/services/CourseService";
 import {Badge, Col, Container, Image, Row} from "react-bootstrap";
 import {url} from "../../../js/services/responseResults";
