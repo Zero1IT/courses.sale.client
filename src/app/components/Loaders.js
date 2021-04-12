@@ -1,6 +1,8 @@
 import React, {useEffect, useMemo} from "react";
 import cx from "classnames";
 import {Button} from "react-bootstrap";
+import RoleService from "../../js/services/RoleService";
+import {saveRoles} from "../storage/actions";
 
 /**
  *
@@ -60,6 +62,20 @@ function CircleLoader({small, noBg}) {
   );
 }
 
+async function CLSLoader3StepHandler(setState, invokeAsync) {
+  try {
+    setState([true, false]);
+    await invokeAsync();
+    setState([true, true]);
+  } catch (e) {
+    // TODO: exceptions
+    console.error(e);
+    setState([true, false, true])
+  }
+
+  return null;
+}
+
 export {
-  CircleLoaderSuccess, CircleLoader
+  CircleLoaderSuccess, CircleLoader, CLSLoader3StepHandler
 }

@@ -27,8 +27,8 @@ class RoleService {
     return acceptOkJsonResponse(api.put(this.url, role));
   }
 
-  async deleteRole(name) {
-    return acceptOkJsonResponse(api.delete(`${this.url}/${name}`));
+  async deleteRole(roleToRemove, roleToMigrate) {
+    return acceptOkJsonResponse(api.delete(`${this.url}/${roleToRemove}`, {to: roleToMigrate}));
   }
 }
 
