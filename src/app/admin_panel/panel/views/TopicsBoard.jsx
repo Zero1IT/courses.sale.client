@@ -88,18 +88,22 @@ function TopicsBoard() {
               <Paginator info={skippedPage} onSelect={onSelectSkippedPage} />
             </Tab>
             <Tab eventKey="approved" title="Подтверждённые">
-              <ListGroup horizontal>
+              <Row>
                 {approvedPage.content.map(it => (
-                  <ListGroup.Item key={it.name} md={4}>
-                    {it.name}
-                  </ListGroup.Item>
+                  <Col>
+                    <ListGroup.Item key={it.name} md={4}>
+                      {it.name}
+                    </ListGroup.Item>
+                  </Col>
                 ))}
-                <ListGroup.Item>
-                  <Button style={{padding: "0", fontSize: "2rem", border: "transparent"}} onClick={onShowCreatingTopicWindow}>
-                    <i className="fas fa-plus-square" />
-                  </Button>
-                </ListGroup.Item>
-              </ListGroup>
+                <Col className="text-center">
+                  <ListGroup.Item>
+                    <Button style={{padding: "0", fontSize: "2rem", border: "transparent"}} onClick={onShowCreatingTopicWindow}>
+                      <i className="fas fa-plus-square" />
+                    </Button>
+                  </ListGroup.Item>
+                </Col>
+              </Row>
               {approvedPage.content.length === 0 && <h3 className="text-center">Нет подтверждённых</h3>}
               <Paginator info={approvedPage} onSelect={onSelectApprovedPage} />
             </Tab>
